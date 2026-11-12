@@ -210,8 +210,11 @@ content:
                 label: Alto en pulgadas
                 type: number
               - name: precio
-                label: Precio por unidad (RD$)
+                label: Precio por unidad (RD$; 0 = precio por confirmar)
                 type: number
+              - name: enmarcada
+                label: Es una foto enmarcada (se muestra con marco)
+                type: boolean
               - name: foto
                 label: Foto ilustrativa
                 type: image

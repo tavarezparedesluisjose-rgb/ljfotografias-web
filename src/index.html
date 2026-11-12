@@ -824,6 +824,79 @@ table.ct{width:100%;border-collapse:collapse;min-width:780px;font-size:.92rem}
 .cfgMonT{background:transparent;border-color:rgba(255,255,255,.18);padding:2px}
 .cfgMonT button{padding:6px 10px;color:#a9a59c;font-size:.62rem}
 .cfgMonT button[aria-checked="true"]{background:var(--oro);color:var(--tinta)}
+.monOsc{border-color:rgba(255,255,255,.22)}
+.exp .tope .monSel button{display:inline-block;padding:6px 11px;color:#a9a59c}
+.exp .tope .monSel button[aria-checked="true"]{color:var(--tinta)}
+.exp .tope .monSel button svg{display:none}
+.xps .cfgMonW{margin-top:24px}
+.cfgPapel.conMarco{padding:9%;background:linear-gradient(135deg,#3b2a1c,#6b4a2f 45%,#2c1f14);box-shadow:inset 0 0 0 3px #f4efe6,0 18px 30px -16px rgba(0,0,0,.5)}
+.cfgPapel.conMarco img{outline:6px solid #f4efe6}
+
+/* Ventana de adicionales */
+.adic{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:24px;visibility:hidden;transition:visibility 0s .6s}
+.adic.ver{visibility:visible;transition:none}
+.adicFondo{position:absolute;inset:0;background:rgba(15,14,13,.62);backdrop-filter:blur(6px);opacity:0;transition:opacity .5s}
+.adic.ver .adicFondo{opacity:1}
+.adicPanel{position:relative;width:min(760px,100%);max-height:min(88vh,860px);overflow-y:auto;overscroll-behavior:contain;background:#fff;color:var(--tinta);transform:translateY(40px) scale(.98);opacity:0;transition:transform .6s var(--lento),opacity .45s}
+.adic.ver .adicPanel{transform:none;opacity:1}
+.adicCab{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:16px;padding:18px 24px;background:var(--tinta);color:#f3efe6}
+.adicCab>div:first-child{flex:1;min-width:0}
+.adicCab .eti{color:var(--oro);font-size:.6rem}
+.adicPaq{margin:4px 0 0;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.adicPaq b{font-family:var(--serif);font-weight:400;font-size:1.45rem;line-height:1.1}
+.adicPaq span{color:var(--oro);font-variant-numeric:tabular-nums}
+.adicX{background:none;border:0;width:38px;height:38px;cursor:pointer;display:grid;place-items:center;color:#fff}
+.adicX svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.2;fill:none;transition:transform .45s var(--lento)}
+.adicX:hover svg{transform:rotate(90deg)}
+.adicCuerpo{padding:30px 32px 10px}
+.adicCuerpo h3{font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,4vw,2.4rem);line-height:1.1;margin:0 0 8px}
+.adicCuerpo h3 em{font-style:italic}
+.adicSub{margin:0 0 24px;color:var(--gris);font-size:.95rem}
+.adicCuerpo h4{color:var(--bronce);margin:26px 0 12px;font-size:.62rem}
+.adicImps{display:grid;gap:8px}
+.adRow{display:grid;grid-template-columns:48px 1fr auto;gap:16px;align-items:center;padding:10px 12px;border:1px solid var(--linea);transition:border-color .35s,background .35s;animation:cfgEntra .5s var(--lento) both}
+.adRow:nth-child(2){animation-delay:.04s}.adRow:nth-child(3){animation-delay:.08s}.adRow:nth-child(4){animation-delay:.12s}.adRow:nth-child(5){animation-delay:.16s}
+.adRow.on{border-color:var(--bronce);background:#fbfaf7}
+.adMini{width:48px;height:48px;display:grid;place-items:center;background:var(--hueso)}
+.adMini i{display:block;width:calc(var(--w)/14*44px);aspect-ratio:var(--w)/var(--h);background:#fff;padding:2px;box-shadow:0 3px 6px -3px rgba(0,0,0,.4)}
+.adMini.conMarco i{padding:3px;background:#5a3e27}
+.adMini img{width:100%;height:100%;object-fit:cover}
+.adTx b{display:block;font-weight:400;line-height:1.2}
+.adTx b small{color:var(--gris);font-weight:300}
+.adTx span{font-size:.86rem;color:var(--bronce)}
+.adRow .cfgCant button{width:36px;height:36px}
+.adRow .cfgCant output{min-width:34px}
+.adicChips{display:flex;flex-wrap:wrap;gap:8px}
+.adicChips button{background:#fff;border:1px solid var(--linea);padding:11px 16px;cursor:pointer;text-align:left;font-family:inherit;font-weight:300;font-size:.95rem;color:var(--tinta);transition:border-color .3s,background .3s,color .3s}
+.adicChips button small{display:block;color:var(--gris);font-size:.78rem}
+.adicChips button:hover{border-color:var(--tinta)}
+.adicChips button[aria-checked="true"]{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+.adicChips button[aria-checked="true"] small{color:var(--oro)}
+.adicPres{animation:cfgAbre .5s var(--lento) both}
+.adicPres[hidden]{display:none}
+.adicPie{position:sticky;bottom:0;z-index:2;background:#fff;border-top:1px solid var(--linea);padding:18px 32px 20px;margin-top:24px}
+.adicTot{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 14px;margin-bottom:14px}
+.adicTot .eti{color:var(--gris);font-size:.62rem}
+.adicTot b{font-family:var(--serif);font-weight:300;font-size:2rem;line-height:1;font-variant-numeric:tabular-nums}
+.adicTot small{flex-basis:100%;text-align:right;color:var(--gris);font-size:.8rem}
+.adicBtns{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.adicBtns .lk,.adicBtns .cta{padding:15px 24px}
+.adicBtns [hidden]{display:none}
+.adicMas{display:block;margin:12px 0 0 auto;background:none;border:0;padding:4px 0;color:var(--gris);cursor:pointer;font-size:.6rem;border-bottom:1px solid transparent}
+.adicMas:hover{color:var(--tinta);border-color:currentColor}
+@media (max-width:640px){
+  .adic{padding:0;place-items:end stretch}
+  .adicPanel{width:100%;max-height:92vh;transform:translateY(100%)}
+  .adicCab{padding:14px 16px;gap:10px}
+  .adicPaq b{font-size:1.2rem}
+  .adicCuerpo{padding:24px 18px 6px}
+  .adicPie{padding:14px 18px 16px}
+  .adicBtns{flex-direction:column-reverse}
+  .adicBtns .lk,.adicBtns .cta{width:100%;text-align:center}
+  .adRow{grid-template-columns:40px 1fr auto;gap:10px;padding:8px 10px}
+  .adMini{width:40px;height:40px}
+  .adicMas{margin:12px auto 0}
+}
 /* Paso 1: paquete base */
 .cfgTabs{display:flex;gap:26px;border-bottom:1px solid var(--linea);margin:0 0 22px;overflow-x:auto;scrollbar-width:none}
 .cfgTabs::-webkit-scrollbar{display:none}
@@ -1041,7 +1114,7 @@ table.ct{width:100%;border-collapse:collapse;min-width:780px;font-size:.92rem}
 
   <section class="blo xps" id="experiencias">
     <div class="wrap">
-      <div class="cab" data-r><p class="eti">Experiencias</p><h2>Encuentra la <em>tuya</em></h2></div>
+      <div class="cab" data-r><p class="eti">Experiencias</p><h2>Encuentra la <em>tuya</em></h2><div class="cfgMonW"><div class="cfgMon monSel eti" role="radiogroup" aria-label="Moneda"><button type="button" role="radio" data-m="RD$" aria-checked="true">RD$ Pesos</button><button type="button" role="radio" data-m="US$" aria-checked="false">US$ Dólares</button></div><span class="cfgTasaTxt eti"></span></div></div>
       <div class="xgrid" id="xgrid" data-r></div>
       <p class="pdesliza eti" aria-hidden="true"><i></i>Desliza para ver más</p>
       <div class="armaCta" data-r><p>¿Quieres sumar fotos impresas o un álbum a tu paquete?</p><a class="mag lk osc eti" href="#arma-tu-paquete" data-arma>Arma tu paquete</a></div>
@@ -1098,7 +1171,7 @@ table.ct{width:100%;border-collapse:collapse;min-width:780px;font-size:.92rem}
   <div class="tope eti"><button type="button" class="eti" id="armaVolver"><svg width="22" height="10" viewBox="0 0 22 10" fill="none" aria-hidden="true"><path d="M22 5H1M5 1 1 5l4 4" stroke="currentColor"/></svg>Volver</button><span>Arma tu paquete</span><a class="eti ir" href="tel:+18097295312">809-729-5312</a></div>
   <section class="blo cfg" id="personaliza">
     <div class="wrap">
-      <div class="cab"><p class="eti">Arma tu paquete</p><h2 id="armaTit">Construye tu <em>experiencia</em></h2><p class="cfgSub">Elige tu paquete y súmale fotografías impresas, un álbum y su presentación. El total se calcula al instante.</p><div class="cfgMonW"><div class="cfgMon eti" role="radiogroup" aria-label="Moneda"><button type="button" role="radio" data-m="RD$" aria-checked="true">RD$ Pesos</button><button type="button" role="radio" data-m="US$" aria-checked="false">US$ Dólares</button></div><span class="cfgTasaTxt eti"></span></div></div>
+      <div class="cab"><p class="eti">Arma tu paquete</p><h2 id="armaTit">Construye tu <em>experiencia</em></h2><p class="cfgSub">Elige tu paquete y súmale fotografías impresas, un álbum y su presentación. El total se calcula al instante.</p><div class="cfgMonW"><div class="cfgMon monSel eti" role="radiogroup" aria-label="Moneda"><button type="button" role="radio" data-m="RD$" aria-checked="true">RD$ Pesos</button><button type="button" role="radio" data-m="US$" aria-checked="false">US$ Dólares</button></div><span class="cfgTasaTxt eti"></span></div></div>
       <div class="cfgGrid">
         <div class="cfgPasos">
           <div class="cfgPaso">
@@ -1122,7 +1195,7 @@ table.ct{width:100%;border-collapse:collapse;min-width:780px;font-size:.92rem}
         </div>
         <aside class="cfgRes" id="cfgRes" aria-label="Resumen del pedido">
           <div class="cfgTicket">
-            <div class="cfgTkCab"><p class="eti">Resumen del pedido</p><div class="cfgMon cfgMonT eti" role="radiogroup" aria-label="Moneda del resumen"><button type="button" role="radio" data-m="RD$" aria-checked="true">RD$</button><button type="button" role="radio" data-m="US$" aria-checked="false">US$</button></div></div>
+            <div class="cfgTkCab"><p class="eti">Resumen del pedido</p><div class="cfgMon cfgMonT monSel eti" role="radiogroup" aria-label="Moneda del resumen"><button type="button" role="radio" data-m="RD$" aria-checked="true">RD$</button><button type="button" role="radio" data-m="US$" aria-checked="false">US$</button></div></div>
             <div id="cfgLineas" aria-live="polite"></div>
             <div class="cfgTot"><span class="eti">Total del pedido</span><b id="cfgTotal">RD$0</b><small id="cfgTotNota"></small></div>
             <a class="cta mag eti cfgWa" id="cfgWa" href="https://wa.me/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>Solicitar mi paquete por WhatsApp</a>
@@ -1137,6 +1210,31 @@ table.ct{width:100%;border-collapse:collapse;min-width:780px;font-size:.92rem}
 </div>
 
 
+<div class="adic" id="adic" role="dialog" aria-modal="true" aria-labelledby="adicTit" aria-hidden="true">
+  <div class="adicFondo" id="adicFondo"></div>
+  <div class="adicPanel" id="adicPanel">
+    <div class="adicCab">
+      <div><span class="eti" id="adicCat"></span><p class="adicPaq"><b id="adicPaq"></b><span id="adicPrecio"></span></p></div>
+      <div class="cfgMon cfgMonT monSel eti" role="radiogroup" aria-label="Moneda"><button type="button" role="radio" data-m="RD$" aria-checked="true">RD$</button><button type="button" role="radio" data-m="US$" aria-checked="false">US$</button></div>
+      <button type="button" class="adicX" id="adicX" aria-label="Cerrar"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4l12 12M16 4 4 16"/></svg></button>
+    </div>
+    <div class="adicCuerpo">
+      <h3 id="adicTit">¿Quieres agregar <em>adicionales</em>?</h3>
+      <p class="adicSub">Son opcionales. Elige lo que quieras sumar a tu paquete y el total se actualiza al momento.</p>
+      <h4 class="eti">Fotografías impresas y enmarcadas</h4>
+      <div class="adicImps" id="adicImps"></div>
+      <h4 class="eti">Álbum</h4>
+      <div class="adicChips" id="adicAlbs" role="radiogroup" aria-label="Álbum"></div>
+      <div class="adicPres" id="adicPresW" hidden><h4 class="eti">¿Cómo deseas recibir tu álbum?</h4><div class="adicChips" id="adicPres" role="radiogroup" aria-label="Presentación del álbum"></div></div>
+    </div>
+    <div class="adicPie">
+      <div class="adicTot"><span class="eti" id="adicExtras">Sin adicionales</span><b id="adicTotal"></b><small id="adicEq"></small></div>
+      <div class="adicBtns"><button type="button" class="lk osc eti" id="adicSin">Continuar sin adicionales</button><button type="button" class="cta eti" id="adicCon">Continuar</button></div>
+      <button type="button" class="adicMas eti" id="adicMas">Ver más opciones en «Arma tu paquete»</button>
+    </div>
+  </div>
+</div>
+
 <div class="col2" id="col2" role="dialog" aria-modal="true" aria-labelledby="colTit" aria-hidden="true">
   <div class="tope eti">
     <button type="button" class="eti" id="volver"><svg width="22" height="10" viewBox="0 0 22 10" fill="none" aria-hidden="true"><path d="M22 5H1M5 1 1 5l4 4" stroke="currentColor"/></svg>Categorías</button>
@@ -1148,7 +1246,7 @@ table.ct{width:100%;border-collapse:collapse;min-width:780px;font-size:.92rem}
 </div>
 
 <div class="exp" id="exp" role="dialog" aria-modal="true" aria-labelledby="expTit" aria-hidden="true">
-  <div class="tope eti"><button type="button" class="eti" id="expVolver"><svg width="22" height="10" viewBox="0 0 22 10" fill="none" aria-hidden="true"><path d="M22 5H1M5 1 1 5l4 4" stroke="currentColor"/></svg>Experiencias</button><span id="expPos"></span><div class="der2"><button type="button" class="eti ir" id="expComp" hidden>Comparar</button></div></div>
+  <div class="tope eti"><button type="button" class="eti" id="expVolver"><svg width="22" height="10" viewBox="0 0 22 10" fill="none" aria-hidden="true"><path d="M22 5H1M5 1 1 5l4 4" stroke="currentColor"/></svg>Experiencias</button><span id="expPos"></span><div class="der2"><div class="cfgMon cfgMonT monOsc monSel eti" role="radiogroup" aria-label="Moneda"><button type="button" role="radio" data-m="RD$" aria-checked="true">RD$</button><button type="button" role="radio" data-m="US$" aria-checked="false">US$</button></div><button type="button" class="eti ir" id="expComp" hidden>Comparar</button></div></div>
   <header class="expHero"><div id="expFondo"></div><div class="wrap" id="expHeroIn"></div></header>
   <section class="expPaq"><div class="wrap"><div class="cabX"><h4 id="expPT"></h4><span class="eti" id="expPN"></span></div><div class="cards" id="expCards"></div><p class="pdesliza eti" aria-hidden="true"><i></i>Desliza para ver más</p></div></section>
   <section class="comp" id="comp" hidden><div class="wrap">
@@ -1458,7 +1556,20 @@ CATALOGO.forEach(c => {
 const slug = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 CATALOGO.forEach(c => (c.servicios || []).forEach(s => { s.id = s.id || c.id + "-" + slug(s.nombre); }));
 const listaDe = c => c.paquetes || c.servicios;
-const precioTxt = it => it.precio ? it.mon + it.precio.toLocaleString("en-US") : "Cotización personalizada";
+/* Moneda: el cliente elige pesos o dólares en toda la página. Los precios se guardan en su moneda original
+   y se convierten con la tasa de config.tasaDolar (pesos por cada dólar). */
+const TASA = Math.max(1, Number(CONFIG.tasaDolar) || 60);
+const TASA_TXT = "US$1 = RD$" + TASA.toLocaleString("en-US");
+const RD = n => "RD$" + Math.round(n).toLocaleString("en-US");
+const US = n => { const v = Math.round(n / TASA * 100) / 100; return "US$" + v.toLocaleString("en-US", {minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits: 2}); };
+const enRD = p => p.mon === "US$" ? p.precio * TASA : p.precio;
+let MON = "RD$";
+try { const g = localStorage.getItem("ljMon") || (JSON.parse(localStorage.getItem("ljCfg") || "{}") || {}).mon; if (g === "US$") MON = "US$"; } catch (e) {}
+const M = n => MON === "US$" ? US(n) : RD(n);
+const OTRA = n => MON === "US$" ? RD(n) : US(n);
+const partesM = n => { const t = M(n); return [t.slice(0, 3), t.slice(3)]; };
+const difM = (a, b) => M(enRD(b) - enRD(a));
+const precioTxt = it => it.precio ? M(enRD(it)) : "Cotización personalizada";
 const totalImp = it => (it.impresas || []).concat(it.enmarcadas || []).reduce((s, x) => s + x[1], 0);
 const DIBUJO = '<div class="dibujo" aria-hidden="true"><svg viewBox="0 0 300 220">' + [
   '<line x1="6" y1="200" x2="294" y2="200"/>', '<rect x="40" y="110" width="150" height="90"/>', '<rect x="90" y="62" width="140" height="48"/>',
@@ -1524,7 +1635,7 @@ function tarjeta(c, it, k){
     '</h5><p class="pkPr">Cotización personalizada</p><p class="pkCo">' + it.corto + '</p><div class="pkAc"><button type="button" class="cta mag eti res">Solicitar cotización</button></div></div></div></article>';
   const datos = it.horas ? [[it.horas, "cobertura"], [it.fotos, "fotos"], [totalImp(it) || "—", "impresas"]] : [[it.fotos, "fotos"], [totalImp(it) || "—", "impresas"], [it.usb ? "USB" : "Digital", "entrega"]];
   return '<article class="pk' + (it.destacado ? " top" : "") + '" style="--d:' + k + '"><div class="pkIn">' + (it.insignia ? '<span class="pkBadge eti">' + it.insignia + '</span>' : "") +
-    '<div class="pkImg">' + img + '</div><div class="pkCu"><h5>' + it.nombre + '</h5><p class="pkPr"><small>' + it.mon + '</small>' + it.precio.toLocaleString("en-US") + '</p><p class="pkCo">' + it.corto + '</p>' +
+    '<div class="pkImg">' + img + '</div><div class="pkCu"><h5>' + it.nombre + '</h5><p class="pkPr"><small>' + partesM(enRD(it))[0] + '</small>' + partesM(enRD(it))[1] + '</p><p class="pkCo">' + it.corto + '</p>' +
     '<ul class="pkDa">' + datos.map(d => '<li><b>' + d[0] + '</b>' + d[1] + '</li>').join("") + '</ul><ul class="pkBe">' + principales(it).map(b => '<li>' + b + '</li>').join("") + '</ul>' +
     '<div class="pkAc"><button type="button" class="lk mag eti ver">Ver detalles</button><button type="button" class="cta mag eti res">Reservar</button></div></div></div></article>';
 }
@@ -1598,7 +1709,7 @@ function pintarComp(c){
   const ps = c.paquetes, ui = ps.findIndex(p => p.destacado), vi = ui - 1;
   const lista = a => a.length ? a.map(x => x[1] + " de " + x[0].replace("x", "×")).join("<br>") : null;
   const filas = [
-    {t: "Diferencia de precio", f: (p, i) => i === 0 ? "Precio base" : "+" + p.mon + (p.precio - ps[i - 1].precio).toLocaleString("en-US"), fija: 1},
+    {t: "Diferencia de precio", f: (p, i) => i === 0 ? "Precio base" : "+" + difM(ps[i - 1], p), fija: 1},
     {t: "Horas de cobertura", f: p => p.horasTxt, ex: 1},
     {t: "Fotografías digitales", f: p => p.fotos + " editadas", ex: 1},
     {t: "Entrega", f: p => p.entrega},
@@ -1625,7 +1736,7 @@ function pintarComp(c){
   const claves = q => (q.impresas || []).map(x => x[0] + "p" + x[1]).concat((q.enmarcadas || []).map(x => x[0] + "m" + x[1]));
   const nuevas = claves(u).filter(x => !claves(v).includes(x));
   const extras = u.beneficios.filter(b => { const m = b.match(/(\d+) [^\d]*?(\d+x\d+)/); return m && nuevas.includes(m[2] + (/enmarcada/i.test(b) ? "m" : "p") + m[1]); });
-  $("ahorro").innerHTML = "Por <b>" + u.mon + (u.precio - v.precio).toLocaleString("en-US") + "</b> más que el " + v.nombre + ", el <b>" + u.nombre + "</b> suma: " +
+  $("ahorro").innerHTML = "Por <b>" + difM(v, u) + "</b> más que el " + v.nombre + ", el <b>" + u.nombre + "</b> suma: " +
     extras.map(x => x.charAt(0).toLowerCase() + x.slice(1)).join(" y ") + ".";
   const sd = $("soloDif"); sd.setAttribute("aria-pressed", "false"); $("ct").classList.remove("foco");
   sd.lastChild.textContent = "Solo " + v.nombre.replace(/^\S+\s/, "") + " vs " + u.nombre.replace(/^\S+\s/, "");
@@ -1672,17 +1783,17 @@ function abrirDet(k){
     const datos = p.horas ? [[p.horasTxt, "cobertura"], [p.fotos, "fotos editadas"], [totalImp(p) || "—", "impresas"]] : [[p.fotos, "fotos"], [totalImp(p) || "—", "impresas"], [p.entrega, "entrega"]];
     const ant = detK > 0 ? ps[detK - 1] : null, sig = detK < ps.length - 1 ? ps[detK + 1] : null;
     const dif = (a, b) => a.beneficios.filter(x => !b.beneficios.includes(x));
-    const vs = (ant ? '<p>Frente a <b>' + ant.nombre + '</b>, por ' + ant.mon + (p.precio - ant.precio).toLocaleString("en-US") + ' más suma: ' + dif(p, ant).slice(0, 4).map(x => x.charAt(0).toLowerCase() + x.slice(1)).join(", ") + '.</p>' : "") +
-      (sig ? '<p>Por ' + p.mon + (sig.precio - p.precio).toLocaleString("en-US") + ' más, <b>' + sig.nombre + '</b> añade: ' + dif(sig, p).slice(0, 4).map(x => x.charAt(0).toLowerCase() + x.slice(1)).join(", ") + '.</p>' : "");
+    const vs = (ant ? '<p>Frente a <b>' + ant.nombre + '</b>, por ' + difM(ant, p) + ' más suma: ' + dif(p, ant).slice(0, 4).map(x => x.charAt(0).toLowerCase() + x.slice(1)).join(", ") + '.</p>' : "") +
+      (sig ? '<p>Por ' + difM(p, sig) + ' más, <b>' + sig.nombre + '</b> añade: ' + dif(sig, p).slice(0, 4).map(x => x.charAt(0).toLowerCase() + x.slice(1)).join(", ") + '.</p>' : "");
     $("dInfo").innerHTML = '<span class="eti" style="--o:0">' + c.nombre + ' · Paquete ' + (detK + 1) + ' de ' + ps.length + (p.insignia ? '<span class="tag eti">' + p.insignia + '</span>' : "") + '</span>' +
-      '<h3 id="dTit" style="--o:1">' + p.nombre + '</h3><p class="dPr" style="--o:2"><small>' + p.mon + '</small><span id="dNum">' + p.precio.toLocaleString("en-US") + '</span></p>' +
+      '<h3 id="dTit" style="--o:1">' + p.nombre + '</h3><p class="dPr" style="--o:2"><small>' + partesM(enRD(p))[0] + '</small><span id="dNum">' + partesM(enRD(p))[1] + '</span></p>' +
       '<p class="dCo" style="--o:3">' + p.corto + '</p><ul class="dDa" style="--o:4">' + datos.map(x => '<li><b>' + x[0] + '</b>' + x[1] + '</li>').join("") + '</ul>' +
       '<ul class="dBen" id="dBen" style="--o:5">' + p.beneficios.map((b, i) => { const ok = opDeBeneficio(b, ops); return '<li style="--d:' + i + '"' + (ok >= 0 ? ' data-k="' + ok + '"' : "") + '>' + b + (ok >= 0 ? '<em>Ver</em>' : "") + '</li>'; }).join("") + '</ul>' +
       (vs ? '<div class="dVs" style="--o:6">' + vs + '</div>' : "") +
       '<div class="dAc" style="--o:7"><button type="button" class="cta mag eti" id="dRes">Reservar este paquete</button>' +
       '<a class="sec eti" target="_blank" rel="noopener" href="https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent("Hola, LJ Fotografías. Quisiera más información sobre el paquete " + p.nombre + " de " + precioTxt(p) + ".") + '">Preguntar por WhatsApp</a>' +
       '<button type="button" class="sec eti" id="dPers">Arma tu paquete con adicionales</button>' + (c.comparar ? '<button type="button" class="sec eti" id="dComp">Comparar paquetes</button>' : "") + '</div>';
-    contarA($("dNum"), ant ? ant.precio : 0, p.precio, "");
+    if (MON === "RD$") contarA($("dNum"), ant ? enRD(ant) : 0, enRD(p), "");
     $("dRes").addEventListener("click", e => reservar(e, c, p));
     $("dPers").addEventListener("click", () => personalizar(c, p));
     if ($("dComp")) $("dComp").addEventListener("click", () => { cerrarDet(); setTimeout(() => $("comp").scrollIntoView({behavior: calma ? "auto" : "smooth"}), 500); });
@@ -1846,8 +1957,11 @@ function cerrarTodo(){
   document.body.classList.remove("fijo");
 }
 function reservar(e, c, it){
-  const r = e.currentTarget.getBoundingClientRect();
-  portal(e.clientX || r.left + r.width / 2, e.clientY || r.top + r.height / 2, it, () => {
+  const r = e.currentTarget.getBoundingClientRect(), x = e.clientX || r.left + r.width / 2, y = e.clientY || r.top + r.height / 2;
+  if (it.precio) abrirAdic(x, y, c, it); else reservarDirecto(x, y, c, it);
+}
+function reservarDirecto(x, y, c, it){
+  portal(x, y, it, () => {
     cerrarTodo();
     $("paquete").value = it.id; $("tipo").value = c.nombre; actualizar(); irA("reservar");
     const cc = $("paquete").closest(".campo"); cc.classList.remove("destaca"); void cc.offsetWidth; cc.classList.add("destaca");
@@ -1984,18 +2098,11 @@ const ADI = (function(a){
   const num = v => Math.max(0, Number(v) || 0);
   const lista = (l, f) => (Array.isArray(l) ? l : []).filter(x => x && x.nombre).map((x, k) => f(x, k));
   return {
-    impresas: lista(a.impresas, (x, k) => ({id: x.id || "imp-" + k, nombre: x.nombre, ancho: num(x.ancho) || 8, alto: num(x.alto) || 10, precio: num(x.precio), foto: codigoImg(x.foto) || "ig-c8"})),
+    impresas: lista(a.impresas, (x, k) => ({id: x.id || "imp-" + k, nombre: x.nombre, ancho: num(x.ancho) || 8, alto: num(x.alto) || 10, precio: num(x.precio), foto: codigoImg(x.foto) || "ig-c8", enmarcada: !!x.enmarcada})),
     albumes: lista(a.albumes, (x, k) => ({id: x.id || "alb-" + k, nombre: x.nombre, ancho: num(x.ancho) || 10, alto: num(x.alto) || 10, lienzos: num(x.lienzos), precio: num(x.precio), foto: codigoImg(x.foto) || "ig-c2"})),
     presentaciones: lista(a.presentaciones, (x, k) => ({id: x.id || "pres-" + k, nombre: x.nombre, precio: num(x.precio), desc: x.desc || "", tipo: x.tipo || (num(x.precio) ? "caja" : "ninguno")}))
   };
 })(ADICIONALES);
-const RD = n => "RD$" + Math.round(n).toLocaleString("en-US");
-const TASA = Math.max(1, Number(CONFIG.tasaDolar) || 60);
-const enRD = p => p.mon === "US$" ? p.precio * TASA : p.precio;
-const US = n => { const v = Math.round(n / TASA * 100) / 100; return "US$" + v.toLocaleString("en-US", {minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits: 2}); };
-const M = n => CFG && CFG.mon === "US$" ? US(n) : RD(n);
-const OTRA = n => CFG && CFG.mon === "US$" ? RD(n) : US(n);
-const TASA_TXT = "US$1 = RD$" + TASA.toLocaleString("en-US");
 const CFG_PAQS = [];
 CATALOGO.forEach(c => (c.paquetes || []).forEach(p => { if (p.precio) CFG_PAQS.push({c, p}); }));
 const cfgPaq = id => CFG_PAQS.find(x => x.p.id === id) || null;
@@ -2012,9 +2119,9 @@ function cfgCargar(){
   ADI.impresas.forEach(x => { const n = Math.min(99, Math.max(0, parseInt(g.imp && g.imp[x.id], 10) || 0)); if (n) imp[x.id] = n; });
   const alb = ADI.albumes.some(x => x.id === g.alb) ? g.alb : null;
   const pres = ADI.presentaciones.some(x => x.id === g.pres) ? g.pres : (ADI.presentaciones[0] ? ADI.presentaciones[0].id : null);
-  return {paq: cfgPaq(g.paq) ? g.paq : null, imp, alb, pres, tab: 0, mon: g.mon === "US$" ? "US$" : "RD$"};
+  return {paq: cfgPaq(g.paq) ? g.paq : null, imp, alb, pres, tab: 0};
 }
-function cfgGuardar(){ try { localStorage.setItem("ljCfg", JSON.stringify({paq: CFG.paq, imp: CFG.imp, alb: CFG.alb, pres: CFG.pres, mon: CFG.mon})); } catch (e) {} }
+function cfgGuardar(){ try { localStorage.setItem("ljCfg", JSON.stringify({paq: CFG.paq, imp: CFG.imp, alb: CFG.alb, pres: CFG.pres, mon: MON})); } catch (e) {} }
 
 /* Cálculo único que usan el resumen, la barra y los mensajes de WhatsApp */
 function cfgCalculo(){
@@ -2025,20 +2132,21 @@ function cfgCalculo(){
   const tImp = imps.reduce((s, i) => s + i.sub, 0);
   const extras = tImp + (alb ? alb.precio : 0) + (pres ? pres.precio : 0);
   const baseRD = base ? enRD(base.p) : 0;
-  return {base, baseRD, imps, tImp, alb, pres, extras, total: baseRD + extras, vacio: !base && !imps.length && !alb};
+  return {base, baseRD, imps, tImp, alb, pres, extras, total: baseRD + extras, pend: imps.some(i => !i.x.precio), vacio: !base && !imps.length && !alb};
 }
 function cfgLineasTexto(k){
   const l = [];
   if (k.base) l.push("Paquete: " + k.base.p.nombre + " (" + k.base.c.nombre + ") · " + M(k.baseRD));
-  if (k.imps.length){ l.push("Fotografías impresas:"); k.imps.forEach(i => l.push("• " + i.n + " × " + i.x.nombre + " pulgadas (" + M(i.x.precio) + " c/u) = " + M(i.sub))); }
+  if (k.imps.length){ l.push("Fotografías impresas:"); k.imps.forEach(i => l.push("• " + i.n + " × " + cfgNom(i.x) + (i.x.precio ? " (" + M(i.x.precio) + " c/u) = " + M(i.sub) : " (precio por confirmar)"))); }
   if (k.alb){
     l.push("Álbum: " + k.alb.nombre + " pulgadas" + (k.alb.lienzos ? ", " + k.alb.lienzos + " lienzos" : "") + " = " + M(k.alb.precio));
     if (k.pres) l.push("Presentación del álbum: " + k.pres.nombre + (k.pres.precio ? " = " + M(k.pres.precio) : " (sin costo)"));
   }
   return l;
 }
+const cfgNom = x => x.nombre + (x.enmarcada ? "" : " pulgadas");
 function cfgTotalTexto(k){
-  return "TOTAL DEL PEDIDO: " + M(k.total) + "\n(Equivale a " + OTRA(k.total) + " · tasa " + TASA_TXT + ")";
+  return "TOTAL DEL PEDIDO: " + M(k.total) + "\n(Equivale a " + OTRA(k.total) + " · tasa " + TASA_TXT + ")" + (k.pend ? "\nLos artículos con precio por confirmar se cotizan aparte." : "");
 }
 function cfgMensaje(){
   const k = cfgCalculo();
@@ -2068,8 +2176,8 @@ function cfgTabs(){
 }
 function cfgImps(){
   $("cfgImps").innerHTML = ADI.impresas.map(x => '<article class="cfgImp" data-id="' + x.id + '">' + CFG_OK +
-    '<div class="cfgEsc"><div class="cfgPapel" style="--w:' + x.ancho + ';--h:' + x.alto + '"><div class="cfgPila"><i></i><i></i></div>' + imgDe(x.foto) + '</div></div>' +
-    '<div class="cfgDato"><h4>' + x.nombre + '<small>pulgadas</small></h4><p class="cfgPu">' + M(x.precio) + ' <span>por unidad</span></p>' +
+    '<div class="cfgEsc"><div class="cfgPapel' + (x.enmarcada ? " conMarco" : "") + '" style="--w:' + x.ancho + ';--h:' + x.alto + '"><div class="cfgPila"><i></i><i></i></div>' + imgDe(x.foto) + '</div></div>' +
+    '<div class="cfgDato"><h4>' + x.nombre + '<small>' + (x.enmarcada ? "con marco" : "pulgadas") + '</small></h4><p class="cfgPu">' + (x.precio ? M(x.precio) + ' <span>por unidad</span>' : '<span>Precio por confirmar</span>') + '</p>' +
     '<div class="cfgCant"><button type="button" class="menos" aria-label="Quitar una ' + x.nombre + '">−</button><output aria-live="polite" aria-label="Cantidad de ' + x.nombre + '">0</output><button type="button" class="mas" aria-label="Agregar una ' + x.nombre + '">+</button></div>' +
     '<p class="cfgSt">Subtotal <b>RD$0</b></p></div></article>').join("");
   $("cfgImps").querySelectorAll(".cfgImp").forEach(el => {
@@ -2115,7 +2223,7 @@ function cfgRefrescar(){
     el.classList.toggle("on", n > 0); el.classList.toggle("dos", n > 1);
     el.querySelector("output").textContent = n;
     el.querySelector(".menos").disabled = !n; el.querySelector(".mas").disabled = n >= 99;
-    el.querySelector(".cfgSt b").textContent = M(x.precio * n);
+    el.querySelector(".cfgSt b").textContent = x.precio ? M(x.precio * n) : (n ? "Por confirmar" : "—");
   });
   $("cfgAlbs").querySelectorAll(".cfgAl").forEach(b => b.setAttribute("aria-checked", b.dataset.id === CFG.alb));
   $("cfgPres").hidden = !CFG.alb;
@@ -2129,21 +2237,21 @@ function cfgRefrescar(){
   else {
     h = '<ul class="cfgLs">';
     h += '<li class="gr">Paquete fotográfico</li>' + (k.base ? li(k.base.p.nombre, M(k.baseRD), k.base.c.nombre) : li("Sin paquete seleccionado", "—"));
-    if (k.imps.length){ h += '<li class="gr">Fotografías impresas</li>' + k.imps.map(i => li(i.x.nombre + " pulg.", M(i.sub), i.n + " × " + M(i.x.precio))).join(""); if (k.imps.length > 1) h += li("Subtotal impresas", M(k.tImp)); }
+    if (k.imps.length){ h += '<li class="gr">Fotografías impresas</li>' + k.imps.map(i => li(i.x.nombre + (i.x.enmarcada ? "" : " pulg."), i.x.precio ? M(i.sub) : "Por confirmar", i.n + " × " + (i.x.precio ? M(i.x.precio) : "precio por confirmar"))).join(""); if (k.imps.length > 1) h += li("Subtotal impresas", M(k.tImp)); }
     if (k.alb){ h += '<li class="gr">Álbum</li>' + li(k.alb.nombre + " pulg.", M(k.alb.precio), k.alb.lienzos ? k.alb.lienzos + " lienzos" : ""); if (k.pres) h += li(k.pres.nombre, k.pres.precio ? M(k.pres.precio) : M(0), "Presentación"); }
     if (k.extras && k.base) h += li("Subtotal adicionales", M(k.extras));
     h += '</ul>';
   }
   $("cfgLineas").innerHTML = h;
   const tTxt = M(k.total);
-  const tEl = $("cfgTotal"), clave = CFG.mon + k.total;
+  const tEl = $("cfgTotal"), clave = MON + k.total;
   if (clave !== cfgPrevTot && !calma){
-    if (CFG.mon === "RD$" && String(cfgPrevTot).startsWith("RD$")) contarA(tEl, Number(String(cfgPrevTot).slice(3)) || 0, k.total, "RD$"); else tEl.textContent = tTxt;
+    if (MON === "RD$" && String(cfgPrevTot).startsWith("RD$")) contarA(tEl, Number(String(cfgPrevTot).slice(3)) || 0, k.total, "RD$"); else tEl.textContent = tTxt;
     tEl.classList.remove("pulso"); void tEl.offsetWidth; tEl.classList.add("pulso");
   } else tEl.textContent = tTxt;
   cfgPrevTot = clave;
-  $("cfgTotNota").textContent = (k.vacio ? "" : "Equivale a " + OTRA(k.total) + " · ") + "Tasa " + TASA_TXT;
-  document.querySelectorAll(".cfgMon button").forEach(b => b.setAttribute("aria-checked", b.dataset.m === CFG.mon));
+  $("cfgTotNota").textContent = (k.vacio ? "" : "Equivale a " + OTRA(k.total) + " · ") + "Tasa " + TASA_TXT + (k.pend ? ". Hay artículos con precio por confirmar." : "");
+  if ($("adic").classList.contains("ver")) refrescarAdic();
   $("cfgBarTot").textContent = tTxt;
   const wa = $("cfgWa");
   wa.classList.toggle("off", k.vacio); wa.setAttribute("aria-disabled", k.vacio);
@@ -2156,8 +2264,6 @@ CFG = cfgCargar();
 cfgTabs(); cfgImps(); cfgAlbs();
 if (CFG.paq){ const s = cfgPaq(CFG.paq), i = CFG.cats.indexOf(s.c); if (i >= 0){ CFG.tab = i; cfgTabs(); } $("paquete").value = CFG.paq; $("tipo").value = s.c.nombre; }
 cfgRefrescar();
-function cfgMoneda(m){ if (m === CFG.mon) return; CFG.mon = m; cfgTabs(); cfgImps(); cfgAlbs(); cfgRefrescar(); }
-document.querySelectorAll(".cfgMon button").forEach(b => b.addEventListener("click", () => cfgMoneda(b.dataset.m)));
 document.querySelectorAll(".cfgTasaTxt").forEach(el => el.textContent = "Tasa " + TASA_TXT);
 $("cfgWa").addEventListener("click", e => {
   if (cfgCalculo().vacio){ e.preventDefault(); $("cfgEstado").textContent = "Elige al menos un paquete o un adicional para enviar tu pedido."; return; }
@@ -2204,6 +2310,85 @@ if (location.hash === "#arma-tu-paquete") setTimeout(() => abrirArma(), 400);
   addEventListener("resize", pinta);
   $("cfgBarBtn").addEventListener("click", () => $("cfgRes").scrollIntoView({behavior: calma ? "auto" : "smooth", block: "start"}));
 })();
+
+/* Ventana de adicionales al reservar un paquete */
+let ADIC = null;
+function abrirAdic(x, y, c, it){
+  ADIC = {x, y, c, it};
+  cfgElegirPaq(it.id, true);
+  pintarAdic();
+  const a = $("adic"); a.classList.add("ver"); a.setAttribute("aria-hidden", "false"); $("adicPanel").scrollTop = 0;
+  if (!$("exp").classList.contains("ver") && !$("det").classList.contains("ver")) document.body.classList.add("fijo");
+  setTimeout(() => $("adicX").focus({preventScroll: true}), 60);
+}
+function cerrarAdic(){
+  const a = $("adic"); a.classList.remove("ver"); a.setAttribute("aria-hidden", "true");
+  if (!$("exp").classList.contains("ver") && !$("det").classList.contains("ver") && !$("arma").classList.contains("ver")) document.body.classList.remove("fijo");
+}
+function pintarAdic(){
+  if (!ADIC) return;
+  $("adicCat").textContent = ADIC.c.nombre + " · Paquete elegido"; $("adicPaq").textContent = ADIC.it.nombre; $("adicPrecio").textContent = M(enRD(ADIC.it));
+  $("adicImps").innerHTML = ADI.impresas.map(x => '<div class="adRow" data-id="' + x.id + '"><span class="adMini' + (x.enmarcada ? " conMarco" : "") + '"><i style="--w:' + x.ancho + ';--h:' + x.alto + '"><img alt="" src="' + srcDe(x.foto) + '"></i></span>' +
+    '<div class="adTx"><b>' + x.nombre + (x.enmarcada ? "" : ' <small>pulg.</small>') + '</b><span>' + (x.precio ? M(x.precio) + " c/u" : "Precio por confirmar") + '</span></div>' +
+    '<div class="cfgCant"><button type="button" class="menos" aria-label="Quitar una ' + x.nombre + '">−</button><output aria-live="polite">0</output><button type="button" class="mas" aria-label="Agregar una ' + x.nombre + '">+</button></div></div>').join("");
+  $("adicImps").querySelectorAll(".adRow").forEach(el => {
+    const id = el.dataset.id;
+    const paso = d => { const n = Math.min(99, Math.max(0, (CFG.imp[id] || 0) + d)); if (n) CFG.imp[id] = n; else delete CFG.imp[id]; cfgRefrescar();
+      const o = el.querySelector("output"); if (!calma){ o.classList.remove("bump"); void o.offsetWidth; o.classList.add("bump"); } };
+    el.querySelector(".menos").addEventListener("click", () => paso(-1)); el.querySelector(".mas").addEventListener("click", () => paso(1));
+  });
+  $("adicAlbs").innerHTML = '<button type="button" role="radio" data-id="">Sin álbum</button>' + ADI.albumes.map(x => '<button type="button" role="radio" data-id="' + x.id + '">' + x.nombre + '<small>' + (x.lienzos ? x.lienzos + " lienzos · " : "") + M(x.precio) + '</small></button>').join("");
+  $("adicAlbs").querySelectorAll("button").forEach(b => b.addEventListener("click", () => { CFG.alb = b.dataset.id || null; if (!CFG.alb && ADI.presentaciones[0]) CFG.pres = ADI.presentaciones[0].id; cfgRefrescar(); }));
+  $("adicPres").innerHTML = ADI.presentaciones.map(x => '<button type="button" role="radio" data-id="' + x.id + '">' + x.nombre + '<small>' + (x.precio ? "+ " + M(x.precio) : "Sin costo") + '</small></button>').join("");
+  $("adicPres").querySelectorAll("button").forEach(b => b.addEventListener("click", () => { CFG.pres = b.dataset.id; cfgRefrescar(); }));
+  refrescarAdic();
+}
+function refrescarAdic(){
+  const k = cfgCalculo();
+  $("adicImps").querySelectorAll(".adRow").forEach(el => { const n = CFG.imp[el.dataset.id] || 0; el.classList.toggle("on", n > 0); el.querySelector("output").textContent = n; el.querySelector(".menos").disabled = !n; el.querySelector(".mas").disabled = n >= 99; });
+  $("adicAlbs").querySelectorAll("button").forEach(b => b.setAttribute("aria-checked", (b.dataset.id || null) === CFG.alb));
+  $("adicPresW").hidden = !CFG.alb;
+  $("adicPres").querySelectorAll("button").forEach(b => b.setAttribute("aria-checked", b.dataset.id === CFG.pres));
+  const hay = k.imps.length || k.alb;
+  $("adicExtras").textContent = hay ? "Paquete + adicionales (" + M(k.extras) + ")" : "Total del paquete";
+  $("adicTotal").textContent = M(k.total);
+  $("adicEq").textContent = "Equivale a " + OTRA(k.total) + (k.pend ? " · más artículos con precio por confirmar" : "");
+  $("adicCon").textContent = hay ? "Continuar con adicionales" : "Continuar";
+  $("adicSin").hidden = !hay;
+}
+function continuarAdic(){
+  if (!ADIC) return;
+  const {x, y, c, it} = ADIC; cerrarAdic(); reservarDirecto(x, y, c, it);
+}
+$("adicCon").addEventListener("click", continuarAdic);
+$("adicSin").addEventListener("click", () => { CFG.imp = {}; CFG.alb = null; if (ADI.presentaciones[0]) CFG.pres = ADI.presentaciones[0].id; cfgRefrescar(); continuarAdic(); });
+$("adicX").addEventListener("click", cerrarAdic);
+$("adicFondo").addEventListener("click", cerrarAdic);
+$("adicMas").addEventListener("click", () => { cerrarAdic(); cerrarTodo(); abrirArma(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && $("adic").classList.contains("ver")){ e.stopImmediatePropagation(); cerrarAdic(); } }, true);
+
+/* Cambiar de moneda en toda la página */
+function pintarSelectPaquete(){
+  const v = $("paquete").value;
+  $("paquete").innerHTML = '<option value="">Aún no sé, quiero asesoría</option>' + CATALOGO.map(c => '<optgroup label="' + c.nombre + '">' +
+    listaDe(c).map(it => '<option value="' + it.id + '">' + it.nombre + ' · ' + (it.precio ? precioTxt(it) : "cotización") + '</option>').join("") + '</optgroup>').join("");
+  $("paquete").value = v;
+}
+function cambiarMoneda(m){
+  if (m !== "RD$" && m !== "US$") return;
+  const cambia = m !== MON; MON = m;
+  try { localStorage.setItem("ljMon", m); } catch (e) {}
+  document.querySelectorAll(".monSel button").forEach(b => b.setAttribute("aria-checked", b.dataset.m === MON));
+  if (!cambia) return;
+  if ($("exp").classList.contains("ver")) pintarExp();
+  if ($("det").classList.contains("ver") && detK >= 0) abrirDet(detK);
+  pintarSelectPaquete(); actualizar();
+  cfgTabs(); cfgImps(); cfgAlbs(); cfgRefrescar();
+  if ($("adic").classList.contains("ver")) pintarAdic();
+}
+document.querySelectorAll(".monSel button").forEach(b => b.addEventListener("click", () => cambiarMoneda(b.dataset.m)));
+document.querySelectorAll(".cfgTasaTxt").forEach(el => el.textContent = "Tasa " + TASA_TXT);
+cambiarMoneda(MON);
 
 /* Entradas al bajar y sección activa en el menú */
 if ("IntersectionObserver" in window){

@@ -705,6 +705,14 @@
   "adicionales": {
     "impresas": [
       {
+        "id": "imp-5x7",
+        "nombre": "Foto 5 × 7",
+        "ancho": 5,
+        "alto": 7,
+        "precio": 0,
+        "foto": "img/ig-j1.jpg"
+      },
+      {
         "id": "imp-6x8",
         "nombre": "Foto 6 × 8",
         "ancho": 6,
@@ -727,6 +735,15 @@
         "alto": 14,
         "precio": 850,
         "foto": "img/ig-f5.jpg"
+      },
+      {
+        "id": "enm-foto",
+        "nombre": "Foto enmarcada",
+        "ancho": 8,
+        "alto": 10,
+        "precio": 0,
+        "foto": "img/ig-c7.jpg",
+        "enmarcada": true
       }
     ],
     "albumes": [
