@@ -709,7 +709,7 @@
         "nombre": "Foto 5 × 7",
         "ancho": 5,
         "alto": 7,
-        "precio": 0,
+        "precio": 35,
         "foto": "img/ig-j1.jpg"
       },
       {
@@ -737,13 +737,14 @@
         "foto": "img/ig-f5.jpg"
       },
       {
-        "id": "enm-foto",
-        "nombre": "Foto enmarcada",
-        "ancho": 8,
-        "alto": 10,
-        "precio": 0,
+        "id": "enm-11x14",
+        "nombre": "Foto enmarcada 11 × 14",
+        "ancho": 11,
+        "alto": 14,
+        "precio": 2600,
         "foto": "img/ig-c7.jpg",
-        "enmarcada": true
+        "enmarcada": true,
+        "detalle": "Con marco y lienzo"
       }
     ],
     "albumes": [

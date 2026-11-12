@@ -215,6 +215,9 @@ content:
               - name: enmarcada
                 label: Es una foto enmarcada (se muestra con marco)
                 type: boolean
+              - name: detalle
+                label: Detalle corto (ej. Con marco y lienzo)
+                type: string
               - name: foto
                 label: Foto ilustrativa
                 type: image

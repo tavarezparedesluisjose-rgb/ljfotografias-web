@@ -2098,7 +2098,7 @@ const ADI = (function(a){
   const num = v => Math.max(0, Number(v) || 0);
   const lista = (l, f) => (Array.isArray(l) ? l : []).filter(x => x && x.nombre).map((x, k) => f(x, k));
   return {
-    impresas: lista(a.impresas, (x, k) => ({id: x.id || "imp-" + k, nombre: x.nombre, ancho: num(x.ancho) || 8, alto: num(x.alto) || 10, precio: num(x.precio), foto: codigoImg(x.foto) || "ig-c8", enmarcada: !!x.enmarcada})),
+    impresas: lista(a.impresas, (x, k) => ({id: x.id || "imp-" + k, nombre: x.nombre, ancho: num(x.ancho) || 8, alto: num(x.alto) || 10, precio: num(x.precio), foto: codigoImg(x.foto) || "ig-c8", enmarcada: !!x.enmarcada, detalle: x.detalle || (x.enmarcada ? "Con marco" : "")})),
     albumes: lista(a.albumes, (x, k) => ({id: x.id || "alb-" + k, nombre: x.nombre, ancho: num(x.ancho) || 10, alto: num(x.alto) || 10, lienzos: num(x.lienzos), precio: num(x.precio), foto: codigoImg(x.foto) || "ig-c2"})),
     presentaciones: lista(a.presentaciones, (x, k) => ({id: x.id || "pres-" + k, nombre: x.nombre, precio: num(x.precio), desc: x.desc || "", tipo: x.tipo || (num(x.precio) ? "caja" : "ninguno")}))
   };
@@ -2144,7 +2144,7 @@ function cfgLineasTexto(k){
   }
   return l;
 }
-const cfgNom = x => x.nombre + (x.enmarcada ? "" : " pulgadas");
+const cfgNom = x => x.nombre + " pulgadas" + (x.detalle ? ", " + x.detalle.toLowerCase() : "");
 function cfgTotalTexto(k){
   return "TOTAL DEL PEDIDO: " + M(k.total) + "\n(Equivale a " + OTRA(k.total) + " · tasa " + TASA_TXT + ")" + (k.pend ? "\nLos artículos con precio por confirmar se cotizan aparte." : "");
 }
@@ -2177,7 +2177,7 @@ function cfgTabs(){
 function cfgImps(){
   $("cfgImps").innerHTML = ADI.impresas.map(x => '<article class="cfgImp" data-id="' + x.id + '">' + CFG_OK +
     '<div class="cfgEsc"><div class="cfgPapel' + (x.enmarcada ? " conMarco" : "") + '" style="--w:' + x.ancho + ';--h:' + x.alto + '"><div class="cfgPila"><i></i><i></i></div>' + imgDe(x.foto) + '</div></div>' +
-    '<div class="cfgDato"><h4>' + x.nombre + '<small>' + (x.enmarcada ? "con marco" : "pulgadas") + '</small></h4><p class="cfgPu">' + (x.precio ? M(x.precio) + ' <span>por unidad</span>' : '<span>Precio por confirmar</span>') + '</p>' +
+    '<div class="cfgDato"><h4>' + x.nombre + '<small>' + (x.detalle || "pulgadas") + '</small></h4><p class="cfgPu">' + (x.precio ? M(x.precio) + ' <span>por unidad</span>' : '<span>Precio por confirmar</span>') + '</p>' +
     '<div class="cfgCant"><button type="button" class="menos" aria-label="Quitar una ' + x.nombre + '">−</button><output aria-live="polite" aria-label="Cantidad de ' + x.nombre + '">0</output><button type="button" class="mas" aria-label="Agregar una ' + x.nombre + '">+</button></div>' +
     '<p class="cfgSt">Subtotal <b>RD$0</b></p></div></article>').join("");
   $("cfgImps").querySelectorAll(".cfgImp").forEach(el => {
@@ -2237,7 +2237,7 @@ function cfgRefrescar(){
   else {
     h = '<ul class="cfgLs">';
     h += '<li class="gr">Paquete fotográfico</li>' + (k.base ? li(k.base.p.nombre, M(k.baseRD), k.base.c.nombre) : li("Sin paquete seleccionado", "—"));
-    if (k.imps.length){ h += '<li class="gr">Fotografías impresas</li>' + k.imps.map(i => li(i.x.nombre + (i.x.enmarcada ? "" : " pulg."), i.x.precio ? M(i.sub) : "Por confirmar", i.n + " × " + (i.x.precio ? M(i.x.precio) : "precio por confirmar"))).join(""); if (k.imps.length > 1) h += li("Subtotal impresas", M(k.tImp)); }
+    if (k.imps.length){ h += '<li class="gr">Fotografías impresas</li>' + k.imps.map(i => li(i.x.nombre + " pulg." + (i.x.detalle ? " · " + i.x.detalle.toLowerCase() : ""), i.x.precio ? M(i.sub) : "Por confirmar", i.n + " × " + (i.x.precio ? M(i.x.precio) : "precio por confirmar"))).join(""); if (k.imps.length > 1) h += li("Subtotal impresas", M(k.tImp)); }
     if (k.alb){ h += '<li class="gr">Álbum</li>' + li(k.alb.nombre + " pulg.", M(k.alb.precio), k.alb.lienzos ? k.alb.lienzos + " lienzos" : ""); if (k.pres) h += li(k.pres.nombre, k.pres.precio ? M(k.pres.precio) : M(0), "Presentación"); }
     if (k.extras && k.base) h += li("Subtotal adicionales", M(k.extras));
     h += '</ul>';
@@ -2329,7 +2329,7 @@ function pintarAdic(){
   if (!ADIC) return;
   $("adicCat").textContent = ADIC.c.nombre + " · Paquete elegido"; $("adicPaq").textContent = ADIC.it.nombre; $("adicPrecio").textContent = M(enRD(ADIC.it));
   $("adicImps").innerHTML = ADI.impresas.map(x => '<div class="adRow" data-id="' + x.id + '"><span class="adMini' + (x.enmarcada ? " conMarco" : "") + '"><i style="--w:' + x.ancho + ';--h:' + x.alto + '"><img alt="" src="' + srcDe(x.foto) + '"></i></span>' +
-    '<div class="adTx"><b>' + x.nombre + (x.enmarcada ? "" : ' <small>pulg.</small>') + '</b><span>' + (x.precio ? M(x.precio) + " c/u" : "Precio por confirmar") + '</span></div>' +
+    '<div class="adTx"><b>' + x.nombre + ' <small>pulg.' + (x.detalle ? " · " + x.detalle.toLowerCase() : "") + '</small></b><span>' + (x.precio ? M(x.precio) + " c/u" : "Precio por confirmar") + '</span></div>' +
     '<div class="cfgCant"><button type="button" class="menos" aria-label="Quitar una ' + x.nombre + '">−</button><output aria-live="polite">0</output><button type="button" class="mas" aria-label="Agregar una ' + x.nombre + '">+</button></div></div>').join("");
   $("adicImps").querySelectorAll(".adRow").forEach(el => {
     const id = el.dataset.id;
