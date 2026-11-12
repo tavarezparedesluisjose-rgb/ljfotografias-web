@@ -433,8 +433,8 @@
           "mon": "US$",
           "precio": 350,
           "foto": "img/ig-b2.jpg",
-          "fotos": 30,
-          "entrega": "Digital",
+          "fotos": 20,
+          "entrega": "Galería virtual",
           "usb": false,
           "impresas": [
             {
@@ -447,9 +447,9 @@
             }
           ],
           "enmarcadas": [],
-          "corto": "Una sesión en un lugar, con 30 fotos y 6 impresiones.",
+          "corto": "Una sesión en un lugar, con 20 fotos en galería virtual y 6 impresiones.",
           "beneficios": [
-            "30 fotos digitales",
+            "20 fotos digitales editadas en galería virtual",
             "5 fotos impresas de 6x8 pulgadas",
             "1 foto impresa de 8x10 pulgadas",
             "Sesión en un lugar"
@@ -461,8 +461,8 @@
           "mon": "US$",
           "precio": 420,
           "foto": "img/ig-c0.jpg",
-          "fotos": 40,
-          "entrega": "Digital",
+          "fotos": 25,
+          "entrega": "Galería virtual",
           "usb": false,
           "impresas": [
             {
@@ -483,9 +483,9 @@
             }
           ],
           "enmarcadas": [],
-          "corto": "40 fotos y 10 impresiones en cuatro tamaños.",
+          "corto": "25 fotos en galería virtual y 10 impresiones en cuatro tamaños.",
           "beneficios": [
-            "40 fotos digitales",
+            "25 fotos digitales editadas en galería virtual",
             "6 fotos impresas de 6x8 pulgadas",
             "2 fotos impresas de 5x7 pulgadas",
             "1 foto impresa de 8x10 pulgadas",
@@ -498,9 +498,9 @@
           "mon": "US$",
           "precio": 550,
           "foto": "img/ig-d0.jpg",
-          "fotos": 50,
-          "entrega": "USB",
-          "usb": true,
+          "fotos": 30,
+          "entrega": "Galería virtual",
+          "usb": false,
           "impresas": [
             {
               "tamano": "6x8",
@@ -524,9 +524,9 @@
             }
           ],
           "enmarcadas": [],
-          "corto": "50 fotos en USB y 11 impresiones, hasta 10x15.",
+          "corto": "30 fotos en galería virtual y 11 impresiones, hasta 10x15.",
           "beneficios": [
-            "50 fotos digitales en USB",
+            "30 fotos digitales editadas en galería virtual",
             "6 fotos impresas de 6x8 pulgadas",
             "2 fotos impresas de 5x7 pulgadas",
             "1 foto impresa de 8x10 pulgadas",
@@ -540,9 +540,9 @@
           "mon": "US$",
           "precio": 650,
           "foto": "img/ig-c1.jpg",
-          "fotos": 50,
-          "entrega": "USB",
-          "usb": true,
+          "fotos": 40,
+          "entrega": "Galería virtual",
+          "usb": false,
           "destacado": true,
           "insignia": "El más completo",
           "cristal": true,
@@ -574,9 +574,9 @@
               "cantidad": 1
             }
           ],
-          "corto": "Todo el Premium, más una 8x10 extra y una 10x15 enmarcada en cristal.",
+          "corto": "40 fotos en galería virtual, 12 impresiones y una 10x15 enmarcada en cristal.",
           "beneficios": [
-            "50 fotos digitales en USB",
+            "40 fotos digitales editadas en galería virtual",
             "6 fotos impresas de 6x8 pulgadas",
             "2 fotos impresas de 5x7 pulgadas",
             "2 fotos impresas de 8x10 pulgadas",
@@ -591,15 +591,15 @@
           "mon": "US$",
           "precio": 150,
           "foto": "img/ig-f1.jpg",
-          "fotos": 30,
-          "entrega": "WeTransfer",
+          "fotos": 10,
+          "entrega": "Galería virtual",
           "usb": false,
           "impresas": [],
           "enmarcadas": [],
-          "corto": "30 fotos digitales, entregadas por WeTransfer.",
+          "corto": "10 fotos digitales editadas, entregadas en galería virtual.",
           "beneficios": [
-            "30 fotos digitales",
-            "Entrega por WeTransfer"
+            "10 fotos digitales editadas en galería virtual",
+            "Entrega en galería virtual"
           ]
         },
         {
@@ -608,15 +608,15 @@
           "mon": "US$",
           "precio": 160,
           "foto": "img/ig-k1.jpg",
-          "fotos": 40,
-          "entrega": "WeTransfer",
+          "fotos": 15,
+          "entrega": "Galería virtual",
           "usb": false,
           "impresas": [],
           "enmarcadas": [],
-          "corto": "40 fotos digitales, entregadas por WeTransfer.",
+          "corto": "15 fotos digitales editadas, entregadas en galería virtual.",
           "beneficios": [
-            "40 fotos digitales",
-            "Entrega por WeTransfer"
+            "15 fotos digitales editadas en galería virtual",
+            "Entrega en galería virtual"
           ]
         }
       ]

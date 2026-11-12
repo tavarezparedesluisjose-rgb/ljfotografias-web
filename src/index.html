@@ -1633,7 +1633,7 @@ function tarjeta(c, it, k){
   const img = it.foto ? imgDe(it.foto) : (c.id === "inmobiliaria" ? DIBUJO : '<div class="inicial"><span>' + it.nombre.charAt(0) + '</span></div>');
   if (!it.precio) return '<article class="pk sin" style="--d:' + k + '"><div class="pkIn"><div class="pkImg">' + img + '</div><div class="pkCu"><h5>' + it.nombre +
     '</h5><p class="pkPr">Cotización personalizada</p><p class="pkCo">' + it.corto + '</p><div class="pkAc"><button type="button" class="cta mag eti res">Solicitar cotización</button></div></div></div></article>';
-  const datos = it.horas ? [[it.horas, "cobertura"], [it.fotos, "fotos"], [totalImp(it) || "—", "impresas"]] : [[it.fotos, "fotos"], [totalImp(it) || "—", "impresas"], [it.usb ? "USB" : "Digital", "entrega"]];
+  const datos = it.horas ? [[it.horas, "cobertura"], [it.fotos, "fotos"], [totalImp(it) || "—", "impresas"]] : [[it.fotos, "fotos"], [totalImp(it) || "—", "impresas"], it.usb ? ["USB", "entrega"] : /galer/i.test(it.entrega || "") ? ["Galería", "virtual"] : ["Digital", "entrega"]];
   return '<article class="pk' + (it.destacado ? " top" : "") + '" style="--d:' + k + '"><div class="pkIn">' + (it.insignia ? '<span class="pkBadge eti">' + it.insignia + '</span>' : "") +
     '<div class="pkImg">' + img + '</div><div class="pkCu"><h5>' + it.nombre + '</h5><p class="pkPr"><small>' + partesM(enRD(it))[0] + '</small>' + partesM(enRD(it))[1] + '</p><p class="pkCo">' + it.corto + '</p>' +
     '<ul class="pkDa">' + datos.map(d => '<li><b>' + d[0] + '</b>' + d[1] + '</li>').join("") + '</ul><ul class="pkBe">' + principales(it).map(b => '<li>' + b + '</li>').join("") + '</ul>' +
