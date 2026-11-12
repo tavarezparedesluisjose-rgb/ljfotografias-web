@@ -1704,7 +1704,7 @@ function validar(mostrar){
 }
 function guardarSolicitud(){
   const h = location.hostname;
-  if (!(h === CONFIG.dominio || h.endsWith("." + CONFIG.dominio) || h.endsWith(".netlify.app"))) return;
+  if (!h.endsWith(".netlify.app")) return; // Solo Netlify guarda formularios; en GitHub Pages la reserva va por WhatsApp.
   const sel = buscar($("paquete").value), v = id => $(id).value.trim();
   const datos = {"form-name": "reservas", nombre: v("nombre"), telefono: v("tel"), correo: v("correo"), tipo: $("tipo").value,
     paquete: sel ? sel.it.nombre + " · " + precioTxt(sel.it) : "Sin definir", fecha: $("fecha").value, lugar: v("lugar"), comentarios: v("detalle"), marco: marcoElegido};

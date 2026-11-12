@@ -1,5 +1,5 @@
 // Construye la página publicada en dist/ a partir de src/index.html y data/catalogo.json.
-// Netlify lo ejecuta solo en cada cambio (ver netlify.toml). No necesita instalar nada.
+// GitHub Actions lo ejecuta solo en cada cambio (ver .github/workflows/pages.yml). No necesita instalar nada.
 const fs = require("fs");
 const path = require("path");
 
@@ -61,6 +61,8 @@ fs.cpSync(path.join(raiz, "img"), path.join(dist, "img"), { recursive: true });
 ["favicon.svg", "apple-touch-icon.png"].forEach((f) => {
   if (fs.existsSync(path.join(raiz, f))) fs.copyFileSync(path.join(raiz, f), path.join(dist, f));
 });
+if (dominio) fs.writeFileSync(path.join(dist, "CNAME"), dominio + "\n");
+fs.writeFileSync(path.join(dist, ".nojekyll"), "");
 const hoy = new Date().toISOString().slice(0, 10);
 fs.writeFileSync(path.join(dist, "robots.txt"), "User-agent: *\nAllow: /\n\nSitemap: " + url + "sitemap.xml\n");
 fs.writeFileSync(path.join(dist, "sitemap.xml"),

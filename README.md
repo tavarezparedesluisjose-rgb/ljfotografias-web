@@ -9,35 +9,27 @@ Página de LJ Fotografías para **tavarezparedesluisjose.com**: portafolio, cat�
 | `data/catalogo.json` | Precios, paquetes, beneficios, servicios y número de WhatsApp. Es lo que se edita desde el panel. |
 | `src/index.html` | Diseño, animaciones y funcionamiento de la página. |
 | `img/` | Fotos. Las fotos nuevas que subas desde el panel también quedan aquí. |
-| `build.js` | Une el diseño con los datos y genera la página final en `dist/`. Netlify lo ejecuta solo. |
-| `netlify.toml` | Le dice a Netlify cómo publicar. |
+| `build.js` | Une el diseño con los datos y genera la página final en `dist/`. GitHub lo ejecuta solo. |
+| `.github/workflows/pages.yml` | Publica la página en GitHub Pages en cada cambio. |
 | `.pages.yml` | Configuración del panel de edición (Pages CMS). |
 | `favicon.svg`, `apple-touch-icon.png` | Ícono del obturador para el navegador y el teléfono. |
 
 `robots.txt` y `sitemap.xml` se generan solos al publicar.
 
-## Publicar por primera vez
+## Dónde está publicada
 
-### 1. Subir a GitHub
-1. En github.com crea un repositorio nuevo llamado `ljfotografias-web` (puede ser privado).
-2. Sube todo el contenido de esta carpeta. En Mac, pulsa **Cmd + Shift + .** en el Finder para ver los archivos ocultos (`.pages.yml` y `.gitignore`) y súbelos también.
+La página se publica gratis con **GitHub Pages**, sin avisos de terceros. Cada cambio en `main` se publica solo en uno o dos minutos (pestaña **Actions** del repositorio).
 
-La forma más simple es conectar GitHub a Claude (Configuración › Conectores › GitHub) y pedirle a Claude que lo suba.
+### Dominio en GoDaddy (ya configurado)
+- Cuatro registros **A** con nombre `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
+- Registro **CNAME** `www` → `tavarezparedesluisjose-rgb.github.io`.
+- Los registros del correo de Microsoft 365 (MX, TXT, autodiscover…) no se tocan.
 
-### 2. Publicar con Netlify
-1. Entra a netlify.com con tu cuenta de GitHub.
-2. **Add new site › Import an existing project › GitHub** y elige `ljfotografias-web`.
-3. No cambies nada: `netlify.toml` ya indica el comando (`node build.js`) y la carpeta (`dist`). Pulsa **Deploy**.
-4. En **Forms**, activa la detección de formularios para que se guarden las solicitudes de reserva. Ahí puedes activar un aviso por correo.
+El archivo `CNAME` con el dominio se genera solo desde `config.dominio` en `data/catalogo.json`. Si cambias de dominio, cámbialo ahí y en **Settings › Pages** del repositorio.
 
-### 3. Conectar el dominio de GoDaddy
-1. En Netlify: **Domain management › Add a domain** › `tavarezparedesluisjose.com`.
-2. En GoDaddy: **Mis productos › DNS** del dominio.
-   - Registro **A**, nombre `@`, valor `75.2.60.5`. Borra otros registros A de `@` y cualquier “Forwarding” o página de estacionamiento.
-   - Registro **CNAME**, nombre `www`, valor `TU-SITIO.netlify.app` (el nombre que te dio Netlify).
-3. Espera a que se propague (puede tardar hasta un día). Netlify activa el candado HTTPS solo.
+Las reservas llegan por WhatsApp con todos los datos del formulario.
 
-### 4. Aparecer en Google
+## Aparecer en Google
 1. Entra a search.google.com/search-console y agrega una propiedad de tipo **Dominio** con `tavarezparedesluisjose.com`.
 2. Google te da un registro **TXT**: agrégalo en el DNS de GoDaddy y pulsa Verificar.
 3. En **Sitemaps** envía `sitemap.xml`.
@@ -48,9 +40,9 @@ La página ya incluye título, descripción, imagen para compartir y datos estru
 
 ## Editar después
 
-**Tú, sin código:** entra a app.pagescms.org con GitHub, elige `ljfotografias-web` y abre **Catálogo y precios**. Puedes cambiar precios, beneficios, fotos, servicios y el número de WhatsApp. Al guardar, Netlify publica el cambio en uno o dos minutos.
+**Tú, sin código:** entra a app.pagescms.org con GitHub, elige `ljfotografias-web` y abre **Catálogo y precios**. Puedes cambiar precios, beneficios, fotos, servicios y el número de WhatsApp. Al guardar, GitHub publica el cambio en uno o dos minutos.
 
-**Con Claude:** pide el cambio en el chat (nuevas secciones, animaciones, diseño). Con GitHub conectado, Claude sube el cambio al repositorio y Netlify lo publica solo.
+**Con Claude:** pide el cambio en el chat (nuevas secciones, animaciones, diseño). Con GitHub conectado, Claude sube el cambio al repositorio y GitHub lo publica solo.
 
 ## Probar en tu computadora (opcional)
 Con Node instalado: `node build.js` y abre `dist/index.html`.
