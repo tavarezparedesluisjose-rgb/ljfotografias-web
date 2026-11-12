@@ -712,6 +712,19 @@ table.ct{width:100%;border-collapse:collapse;min-width:780px;font-size:.92rem}
 /* El magnetismo mueve el botón hacia el cursor */
 .mag,nav a.caja.mag{transition:transform .6s var(--lento),background .4s,color .4s,border-color .4s,box-shadow .5s}
 
+@media (min-width:861px) and (max-width:1240px){
+  .bar{padding:18px 22px;gap:16px}
+  nav{gap:20px}
+  nav.eti{letter-spacing:.18em}
+  nav.der a:not(.caja){display:none}
+}
+@media (min-width:861px) and (max-width:1000px){
+  nav{gap:14px}
+  nav.eti{font-size:.64rem;letter-spacing:.14em}
+  .marca{font-size:1.3rem}
+  .marca .obt{width:26px;height:26px}
+  nav a.caja{padding:8px 14px}
+}
 @media (max-width:860px){
   nav{display:none}
   .ham{display:flex}
@@ -767,6 +780,160 @@ table.ct{width:100%;border-collapse:collapse;min-width:780px;font-size:.92rem}
   .pista{overflow-x:auto;transform:none!important}
   .cur,.portal{display:none}
 }
+
+/* Personaliza tu paquete: tarjetas en blanco, ticket oscuro con acento oro */
+.cfg{background:var(--blanco)}
+.cfg .cab{margin-bottom:60px}
+.cfgSub{max-width:52ch;margin:18px auto 0;color:var(--gris)}
+.cfgGrid{display:grid;grid-template-columns:minmax(0,1fr) 370px;gap:56px;align-items:start}
+.cfgPaso{padding:0 0 58px;margin:0 0 58px;border-bottom:1px solid var(--linea)}
+.cfgPaso:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.cfgH{display:flex;gap:22px;align-items:flex-start;margin:0 0 28px}
+.cfgN{font-family:var(--serif);font-weight:300;font-size:2.6rem;line-height:.9;color:var(--bronce);font-variant-numeric:lining-nums}
+.cfgPaso h3{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.1;margin:0 0 6px}
+.cfgPaso h3 em{font-style:italic}
+.cfgH p{margin:0;color:var(--gris);font-size:.95rem}
+.cfgOpc{display:inline-block;margin-left:10px;color:var(--gris);vertical-align:middle}
+
+/* Paso 1: paquete base */
+.cfgTabs{display:flex;gap:26px;border-bottom:1px solid var(--linea);margin:0 0 22px;overflow-x:auto;scrollbar-width:none}
+.cfgTabs::-webkit-scrollbar{display:none}
+.cfgTabs button{background:none;border:0;padding:0 0 14px;cursor:pointer;position:relative;white-space:nowrap;color:var(--gris);transition:color .35s}
+.cfgTabs button::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--tinta);transform:scaleX(0);transition:transform .5s var(--lento)}
+.cfgTabs button[aria-selected="true"]{color:var(--tinta)}
+.cfgTabs button[aria-selected="true"]::after{transform:scaleX(1)}
+.cfgPaqs{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.cfgPq{position:relative;text-align:left;background:var(--hueso);border:1px solid transparent;padding:18px 18px 16px;cursor:pointer;font-family:inherit;font-weight:300;transition:border-color .35s,background .35s,transform .45s var(--lento);animation:cfgEntra .6s var(--lento) both;animation-delay:calc(var(--d)*45ms)}
+.cfgPq b{display:block;font-family:var(--serif);font-weight:400;font-size:1.25rem;line-height:1.15;margin:0 0 6px;padding-right:22px}
+.cfgPq span{font-size:.92rem;color:var(--gris);font-variant-numeric:tabular-nums}
+.cfgPq:hover{border-color:var(--linea);background:#fff;transform:translateY(-2px)}
+.cfgPq[aria-checked="true"]{background:#fff;border-color:var(--bronce)}
+.cfgPq[aria-checked="true"] span{color:var(--bronce)}
+.cfgPq .cfgTop{position:absolute;top:-9px;left:14px;background:var(--oro);color:var(--tinta);font-size:.6rem;letter-spacing:.2em;padding:3px 8px}
+
+/* Marca de selección compartida */
+.cfgOk{position:absolute;top:12px;right:12px;width:22px;height:22px;border-radius:50%;border:1px solid var(--linea);background:#fff;display:grid;place-items:center;transition:background .35s,border-color .35s}
+.cfgOk svg{width:12px;height:12px;stroke:#fff;fill:none;stroke-width:2;stroke-dasharray:20;stroke-dashoffset:20;transition:stroke-dashoffset .45s var(--lento) .05s}
+[aria-checked="true"]>.cfgOk,.cfgImp.on>.cfgOk{background:var(--bronce);border-color:var(--bronce)}
+[aria-checked="true"]>.cfgOk svg,.cfgImp.on>.cfgOk svg{stroke-dashoffset:0}
+
+/* Paso 2: impresas */
+.cfgImps,.cfgAlbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cfgImp,.cfgAl{position:relative;background:#fff;border:1px solid var(--linea);padding:0 0 20px;transition:border-color .4s,box-shadow .5s var(--lento),transform .5s var(--lento)}
+.cfgImp.on,.cfgAl[aria-checked="true"]{border-color:var(--bronce);box-shadow:0 26px 50px -34px rgba(140,115,82,.7)}
+.cfgEsc{aspect-ratio:1/1;background:var(--hueso);display:grid;place-items:end center;padding:16% 12% 13%;position:relative;overflow:hidden}
+.cfgEsc::after{content:"";position:absolute;left:10%;right:10%;bottom:12%;height:1px;background:rgba(0,0,0,.08)}
+.cfgPapel{position:relative;z-index:1;width:calc(var(--w)/14*100%);aspect-ratio:var(--w)/var(--h);background:#fff;padding:5%;box-shadow:0 18px 30px -16px rgba(0,0,0,.45);transition:transform .7s var(--lento)}
+.cfgPapel img{width:100%;height:100%;object-fit:cover}
+.cfgImp:hover .cfgPapel{transform:translateY(-6px) rotate(-1.5deg)}
+.cfgPila{position:absolute;inset:0;z-index:-1}
+.cfgPila i{position:absolute;inset:0;background:#fff;box-shadow:0 8px 16px -10px rgba(0,0,0,.35);transition:transform .6s var(--lento),opacity .4s;opacity:0}
+.cfgImp.on .cfgPila i:nth-child(1){opacity:1;transform:translate(7px,-5px) rotate(4deg)}
+.cfgImp.dos .cfgPila i:nth-child(2){opacity:1;transform:translate(-7px,-3px) rotate(-5deg)}
+.cfgDato{padding:18px 20px 0}
+.cfgDato h4{font-family:var(--serif);font-weight:400;font-size:1.35rem;margin:0;line-height:1.1;white-space:nowrap}
+.cfgDato h4 small{display:block;font-family:var(--sans);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gris);margin-top:4px}
+.cfgPu{margin:4px 0 14px;color:var(--bronce);font-variant-numeric:tabular-nums}
+.cfgPu span{color:var(--gris);font-size:.85rem}
+.cfgCant{display:flex;align-items:center;border:1px solid var(--linea);width:max-content}
+.cfgCant button{width:42px;height:40px;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;transition:background .3s,color .3s}
+.cfgCant button:hover:not(:disabled){background:var(--tinta);color:#fff}
+.cfgCant button:disabled{color:#c9c7c1;cursor:default}
+.cfgCant output{min-width:44px;text-align:center;font-variant-numeric:tabular-nums;font-weight:400;display:inline-block}
+.cfgCant output.bump{animation:cfgBump .45s var(--lento)}
+.cfgSt{margin:12px 0 0;font-size:.85rem;color:var(--gris);display:flex;justify-content:space-between;gap:8px}
+.cfgSt b{font-weight:400;color:var(--tinta);font-variant-numeric:tabular-nums}
+
+/* Paso 3: álbumes */
+.cfgAl{cursor:pointer;text-align:left;font-family:inherit;font-weight:300;color:inherit;width:100%}
+.cfgAl:hover{transform:translateY(-3px)}
+.cfgLibro{position:relative;z-index:1;width:calc(var(--w)/14*84%);aspect-ratio:var(--w)/var(--h);perspective:900px}
+.cfgLibro .tapa{position:absolute;inset:0;background:#2a2622;padding:7%;box-shadow:0 22px 34px -18px rgba(0,0,0,.6);transform-origin:left center;transition:transform 1s var(--lento);border-radius:0 3px 3px 0}
+.cfgLibro .tapa img{width:100%;height:100%;object-fit:cover}
+.cfgLibro .lomo{position:absolute;left:-6%;top:0;bottom:0;width:6%;background:#191613;border-radius:3px 0 0 3px}
+.cfgLibro .hojas{position:absolute;inset:2% 1% 2% 0;background:repeating-linear-gradient(90deg,#fff 0 2px,#ece9e3 2px 3px);box-shadow:inset 0 0 0 1px #e0ddd6}
+.cfgAl:hover .tapa,.cfgAl[aria-checked="true"] .tapa{transform:rotateY(-26deg)}
+.cfgDato .cfgLz{display:block;color:var(--gris);font-size:.88rem;margin-top:2px}
+.cfgAl .cfgPu{margin-bottom:0}
+.cfgAyuda{margin:14px 0 0;color:var(--gris);font-size:.88rem}
+
+/* Presentación del álbum */
+.cfgPres{margin-top:34px;padding:30px;background:var(--hueso);animation:cfgAbre .7s var(--lento) both}
+.cfgPres[hidden]{display:none}
+.cfgPres h4{font-family:var(--serif);font-weight:300;font-size:1.6rem;margin:0 0 4px}
+.cfgPres>p{margin:0 0 20px;color:var(--gris);font-size:.92rem}
+.cfgPrOps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.cfgPr{position:relative;text-align:left;background:#fff;border:1px solid transparent;padding:20px 18px 18px;cursor:pointer;font-family:inherit;font-weight:300;color:inherit;transition:border-color .35s,transform .45s var(--lento)}
+.cfgPr:hover{transform:translateY(-2px);border-color:var(--linea)}
+.cfgPr[aria-checked="true"]{border-color:var(--bronce)}
+.cfgPr svg.ic{width:46px;height:40px;stroke:var(--tinta);fill:none;stroke-width:1;margin-bottom:14px;transition:stroke .35s}
+.cfgPr[aria-checked="true"] svg.ic{stroke:var(--bronce)}
+.cfgPr b{display:block;font-weight:400;margin:0 0 4px;padding-right:26px;line-height:1.3}
+.cfgPr .cfgPu{margin:0 0 8px}
+.cfgPr small{display:block;color:var(--gris);font-size:.84rem;line-height:1.45}
+
+/* Resumen del pedido */
+.cfgRes{position:sticky;top:96px}
+.cfgTicket{background:var(--tinta);color:#f3efe6;padding:30px 28px 26px;position:relative}
+#cfgLineas{max-height:calc(100vh - 440px);min-height:120px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#4a4640 transparent}
+.cfgTicket::before{content:"";position:absolute;left:0;right:0;top:-8px;height:8px;background:radial-gradient(circle at 8px 8px,transparent 7px,var(--tinta) 7.5px) -8px 0/16px 8px repeat-x}
+.cfgTicket>p.eti{color:var(--oro);margin:0 0 18px}
+.cfgVacio{color:#a9a59c;font-size:.95rem;margin:0 0 6px}
+.cfgLs{list-style:none;margin:0;padding:0}
+.cfgLs li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.95rem;animation:cfgLinea .5s var(--lento) both}
+.cfgLs li span{color:#d9d5cc}
+.cfgLs li span small{display:block;color:#9c988f;font-size:.78rem;margin-top:1px}
+.cfgLs li b{font-weight:400;white-space:nowrap;font-variant-numeric:tabular-nums}
+.cfgLs li.gr{padding:14px 0 2px;border:0;color:var(--oro);font-size:.62rem;letter-spacing:.26em;text-transform:uppercase}
+.cfgTot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 14px;margin:18px 0 20px;padding-top:18px;border-top:1px solid rgba(205,180,140,.5)}
+.cfgTot .eti{color:var(--oro)}
+.cfgTot b{font-family:var(--serif);font-weight:300;font-size:2.5rem;line-height:1;font-variant-numeric:lining-nums tabular-nums}
+.cfgTot small{flex-basis:100%;color:#a9a59c;font-size:.84rem;text-align:right}
+.cfgWa{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;text-align:center}
+.cfgWa svg{width:18px;height:18px;fill:currentColor;flex:none}
+.cfgWa.off{opacity:.45;pointer-events:none}
+.cfgAcc{display:flex;justify-content:space-between;gap:12px;margin-top:16px}
+.cfgAcc button{background:none;border:0;padding:4px 0;color:#bdb8ad;cursor:pointer;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.cfgAcc button:hover{color:#fff;border-color:currentColor}
+.cfgNota{margin:14px 0 0;color:#a9a59c;font-size:.84rem;line-height:1.5}
+
+/* Barra fija en teléfonos */
+.cfgBarra{display:none}
+
+@keyframes cfgEntra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes cfgLinea{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
+@keyframes cfgBump{40%{transform:scale(1.35);color:var(--bronce)}}
+@keyframes cfgAbre{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+@keyframes cfgPulso{40%{transform:scale(1.06)}}
+.cfgTot b.pulso{animation:cfgPulso .5s var(--lento)}
+
+@media (max-width:1020px){
+  .cfgGrid{grid-template-columns:1fr;gap:40px}
+  .cfgRes{position:static}
+  #cfgLineas{max-height:none;min-height:0}
+  .cfgBarra{display:flex;position:fixed;z-index:30;left:12px;right:12px;bottom:12px;align-items:center;justify-content:space-between;gap:14px;background:var(--tinta);color:#fff;padding:12px 12px 12px 20px;box-shadow:0 18px 40px -16px rgba(0,0,0,.6);transform:translateY(140%);transition:transform .6s var(--lento)}
+  .cfgBarra.ver{transform:none}
+  .cfgBarra span{display:block;color:var(--oro);font-size:.6rem}
+  .cfgBarra b{font-family:var(--serif);font-weight:300;font-size:1.6rem;line-height:1;font-variant-numeric:tabular-nums}
+  .cfgBarra button{background:var(--oro);color:var(--tinta);border:0;padding:13px 18px;cursor:pointer}
+}
+@media (max-width:760px){
+  .cfgImps,.cfgAlbs,.cfgPrOps{grid-template-columns:1fr}
+  .cfgImp,.cfgAl{display:grid;grid-template-columns:118px 1fr;padding:0;align-items:center}
+  .cfgEsc{height:100%;aspect-ratio:auto;min-height:150px;padding:18px 14px 16px}
+  .cfgDato{padding:16px 16px 16px 18px}
+  .cfgPr{display:grid;grid-template-columns:46px 1fr;gap:0 16px;align-items:start}
+  .cfgPr svg.ic{grid-row:span 3;margin:0}
+  .cfgPres{padding:22px 18px;margin-left:-6px;margin-right:-6px}
+  .cfgPaqs{grid-template-columns:1fr 1fr}
+  .cfgH{gap:16px}
+  .cfgN{font-size:2.1rem}
+  .cfgTicket{padding:30px 22px 24px}
+}
+@media (prefers-reduced-motion:reduce){
+  .cfgPq,.cfgLs li,.cfgPres{animation:none}
+  .cfgCant output.bump,.cfgTot b.pulso{animation:none}
+}
 </style>
 </head>
 <body>
@@ -778,6 +945,7 @@ table.ct{width:100%;border-collapse:collapse;min-width:780px;font-size:.92rem}
     <nav class="eti" aria-label="Principal">
       <a href="#portafolio">Portafolio</a>
       <a href="#experiencias">Experiencias</a>
+      <a href="#personaliza">Personaliza</a>
       <a href="#nosotros">Nosotros</a>
     </nav>
     <a class="marca" href="#inicio"><svg class="obt" id="obtCab" aria-hidden="true"></svg><span>LJ <em>Fotografías</em></span></a>
@@ -793,8 +961,9 @@ table.ct{width:100%;border-collapse:collapse;min-width:780px;font-size:.92rem}
   <ul>
     <li><a href="#portafolio">Portafolio <span>01</span></a></li>
     <li><a href="#experiencias">Experiencias <span>02</span></a></li>
-    <li><a href="#nosotros">Nosotros <span>03</span></a></li>
-    <li><a href="#reservar">Reservar <span>04</span></a></li>
+    <li><a href="#personaliza">Personaliza <span>03</span></a></li>
+    <li><a href="#nosotros">Nosotros <span>04</span></a></li>
+    <li><a href="#reservar">Reservar <span>05</span></a></li>
   </ul>
   <div class="pie eti"><a href="https://www.instagram.com/ljfotografias87" target="_blank" rel="noopener">@ljfotografias87</a><a href="tel:+18097295312">809-729-5312</a></div>
 </div>
@@ -847,6 +1016,45 @@ table.ct{width:100%;border-collapse:collapse;min-width:780px;font-size:.92rem}
       <div class="xgrid" id="xgrid" data-r></div>
       <p class="pdesliza eti" aria-hidden="true"><i></i>Desliza para ver más</p>
     </div>
+  </section>
+
+  <section class="blo cfg" id="personaliza">
+    <div class="wrap">
+      <div class="cab" data-r><p class="eti">Personaliza tu paquete</p><h2>Construye tu <em>experiencia</em></h2><p class="cfgSub">Elige tu paquete y súmale fotografías impresas, un álbum y su presentación. El total se calcula al instante.</p></div>
+      <div class="cfgGrid">
+        <div class="cfgPasos">
+          <div class="cfgPaso" data-r>
+            <div class="cfgH"><span class="cfgN">01</span><div><h3>Elige tu <em>paquete</em></h3><p>Es la base de tu pedido. Tócalo de nuevo si quieres quitarlo.</p></div></div>
+            <div class="cfgTabs eti" id="cfgTabs" role="tablist" aria-label="Experiencias con paquetes"></div>
+            <div class="cfgPaqs" id="cfgPaqs" role="radiogroup" aria-label="Paquete base"></div>
+          </div>
+          <div class="cfgPaso" data-r>
+            <div class="cfgH"><span class="cfgN">02</span><div><h3>Agrega fotografías <em>impresas</em><span class="cfgOpc eti">Opcional</span></h3><p>Elige cuántas copias quieres de cada tamaño.</p></div></div>
+            <div class="cfgImps" id="cfgImps"></div>
+          </div>
+          <div class="cfgPaso" data-r>
+            <div class="cfgH"><span class="cfgN">03</span><div><h3>Inmortaliza tus recuerdos en un <em>álbum</em><span class="cfgOpc eti">Opcional</span></h3><p>Puedes elegir un modelo por pedido. Tócalo de nuevo para quitarlo.</p></div></div>
+            <div class="cfgAlbs" id="cfgAlbs" role="radiogroup" aria-label="Modelo de álbum"></div>
+            <div class="cfgPres" id="cfgPres" hidden>
+              <h4>¿Cómo deseas recibir tu <em>álbum</em>?</h4>
+              <p>Elige una sola presentación. El accesorio se suma al precio del álbum.</p>
+              <div class="cfgPrOps" id="cfgPrOps" role="radiogroup" aria-label="Presentación del álbum"></div>
+            </div>
+          </div>
+        </div>
+        <aside class="cfgRes" id="cfgRes" aria-label="Resumen del pedido">
+          <div class="cfgTicket">
+            <p class="eti">Resumen del pedido</p>
+            <div id="cfgLineas" aria-live="polite"></div>
+            <div class="cfgTot"><span class="eti">Total del pedido</span><b id="cfgTotal">RD$0</b><small id="cfgTotNota"></small></div>
+            <a class="cta mag eti cfgWa" id="cfgWa" href="https://wa.me/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>Solicitar mi paquete por WhatsApp</a>
+            <div class="cfgAcc eti"><button type="button" id="cfgReserva">Usar en la reserva</button><button type="button" id="cfgLimpiar">Empezar de nuevo</button></div>
+            <p class="cfgNota" id="cfgEstado" role="status">Se abre WhatsApp con tu pedido listo para enviar. Te confirmamos disponibilidad y detalles al responder.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <div class="cfgBarra" id="cfgBarra" aria-hidden="true"><div><span class="eti">Total del pedido</span><b id="cfgBarTot">RD$0</b></div><button type="button" class="eti" id="cfgBarBtn" tabindex="-1">Ver resumen</button></div>
   </section>
 
   <section class="blo" id="nosotros">
@@ -1439,9 +1647,10 @@ function abrirDet(k){
       (vs ? '<div class="dVs" style="--o:6">' + vs + '</div>' : "") +
       '<div class="dAc" style="--o:7"><button type="button" class="cta mag eti" id="dRes">Reservar este paquete</button>' +
       '<a class="sec eti" target="_blank" rel="noopener" href="https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent("Hola, LJ Fotografías. Quisiera más información sobre el paquete " + p.nombre + " de " + precioTxt(p) + ".") + '">Preguntar por WhatsApp</a>' +
-      (c.comparar ? '<button type="button" class="sec eti" id="dComp">Comparar paquetes</button>' : "") + '</div>';
+      '<button type="button" class="sec eti" id="dPers">Personalizar con adicionales</button>' + (c.comparar ? '<button type="button" class="sec eti" id="dComp">Comparar paquetes</button>' : "") + '</div>';
     contarA($("dNum"), ant ? ant.precio : 0, p.precio, "");
     $("dRes").addEventListener("click", e => reservar(e, c, p));
+    $("dPers").addEventListener("click", () => personalizar(c, p));
     if ($("dComp")) $("dComp").addEventListener("click", () => { cerrarDet(); setTimeout(() => $("comp").scrollIntoView({behavior: calma ? "auto" : "smooth"}), 500); });
     $("dBen").querySelectorAll("li[data-k]").forEach(li => li.addEventListener("click", () => { $("dEst").scrollIntoView({behavior: calma ? "auto" : "smooth"}); elegirT(+li.dataset.k); }));
     $("dVolTxt").textContent = "Paquetes de " + c.nombre.toLowerCase();
@@ -1690,6 +1899,7 @@ function mensaje(){
   l.push("Tipo de evento: " + tipo);
   if (marcoElegido && sel && sel.it.enmarcadas && sel.it.enmarcadas.length) l.push("Estilo de marco preferido: " + marcoElegido);
   if (v("detalle")) l.push("Comentarios: " + v("detalle"));
+  cfgExtrasParaReserva().forEach(x => l.push(x));
   l.push("", CONFIG.cierre);
   return l.join("\n");
 }
@@ -1730,6 +1940,213 @@ $("copiar").addEventListener("click", async () => {
 });
 actualizar();
 
+
+/* Personaliza tu paquete: paquete base + impresas + álbum + presentación, con total al instante.
+   Los productos y precios vienen de data/catalogo.json (sección "adicionales"), editable desde el panel. */
+var CFG = null;
+const ADICIONALES = /*@@ADICIONALES@@*/null;
+const ADI = (function(a){
+  a = a || {};
+  const num = v => Math.max(0, Number(v) || 0);
+  const lista = (l, f) => (Array.isArray(l) ? l : []).filter(x => x && x.nombre).map((x, k) => f(x, k));
+  return {
+    impresas: lista(a.impresas, (x, k) => ({id: x.id || "imp-" + k, nombre: x.nombre, ancho: num(x.ancho) || 8, alto: num(x.alto) || 10, precio: num(x.precio), foto: codigoImg(x.foto) || "ig-c8"})),
+    albumes: lista(a.albumes, (x, k) => ({id: x.id || "alb-" + k, nombre: x.nombre, ancho: num(x.ancho) || 10, alto: num(x.alto) || 10, lienzos: num(x.lienzos), precio: num(x.precio), foto: codigoImg(x.foto) || "ig-c2"})),
+    presentaciones: lista(a.presentaciones, (x, k) => ({id: x.id || "pres-" + k, nombre: x.nombre, precio: num(x.precio), desc: x.desc || "", tipo: x.tipo || (num(x.precio) ? "caja" : "ninguno")}))
+  };
+})(ADICIONALES);
+const RD = n => "RD$" + Math.round(n).toLocaleString("en-US");
+const CFG_PAQS = [];
+CATALOGO.forEach(c => (c.paquetes || []).forEach(p => { if (p.precio) CFG_PAQS.push({c, p}); }));
+const cfgPaq = id => CFG_PAQS.find(x => x.p.id === id) || null;
+const CFG_OK = '<span class="cfgOk" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6.4 4.8 9 10 3"/></svg></span>';
+const CFG_IC = {
+  ninguno: '<svg class="ic" viewBox="0 0 46 40" aria-hidden="true"><rect x="12" y="6" width="24" height="29"/><path d="M12 6c-3 0-4 1-4 3v26c0-2 1-3 4-3"/><rect x="16" y="11" width="16" height="12"/></svg>',
+  caja: '<svg class="ic" viewBox="0 0 46 40" aria-hidden="true"><path d="M5 14h36v21H5z"/><path d="M3 9h40v5H3z"/><path d="M5 20h36M5 27h36" stroke-dasharray="2 3"/><rect x="17" y="17" width="12" height="9"/></svg>',
+  bolso: '<svg class="ic" viewBox="0 0 46 40" aria-hidden="true"><path d="M8 13h30l-2 23H10z"/><path d="M16 13V9a7 7 0 0 1 14 0v4"/><path d="M14 19h18"/></svg>'
+};
+function cfgCargar(){
+  let g = {};
+  try { g = JSON.parse(localStorage.getItem("ljCfg") || "{}") || {}; } catch (e) { g = {}; }
+  const imp = {};
+  ADI.impresas.forEach(x => { const n = Math.min(99, Math.max(0, parseInt(g.imp && g.imp[x.id], 10) || 0)); if (n) imp[x.id] = n; });
+  const alb = ADI.albumes.some(x => x.id === g.alb) ? g.alb : null;
+  const pres = ADI.presentaciones.some(x => x.id === g.pres) ? g.pres : (ADI.presentaciones[0] ? ADI.presentaciones[0].id : null);
+  return {paq: cfgPaq(g.paq) ? g.paq : null, imp, alb, pres, tab: 0};
+}
+function cfgGuardar(){ try { localStorage.setItem("ljCfg", JSON.stringify({paq: CFG.paq, imp: CFG.imp, alb: CFG.alb, pres: CFG.pres})); } catch (e) {} }
+
+/* Cálculo único que usan el resumen, la barra y los mensajes de WhatsApp */
+function cfgCalculo(){
+  const base = cfgPaq(CFG.paq);
+  const imps = ADI.impresas.filter(x => CFG.imp[x.id]).map(x => ({x, n: CFG.imp[x.id], sub: x.precio * CFG.imp[x.id]}));
+  const alb = ADI.albumes.find(x => x.id === CFG.alb) || null;
+  const pres = alb ? (ADI.presentaciones.find(x => x.id === CFG.pres) || null) : null;
+  const tImp = imps.reduce((s, i) => s + i.sub, 0);
+  const extras = tImp + (alb ? alb.precio : 0) + (pres ? pres.precio : 0);
+  const baseRD = base && base.p.mon === "RD$" ? base.p.precio : 0;
+  const usd = base && base.p.mon !== "RD$" ? base.p : null;
+  return {base, imps, tImp, alb, pres, extras, total: baseRD + extras, usd, vacio: !base && !imps.length && !alb};
+}
+function cfgLineasTexto(k){
+  const l = [];
+  if (k.base) l.push("Paquete: " + k.base.p.nombre + " (" + k.base.c.nombre + ") · " + precioTxt(k.base.p));
+  if (k.imps.length){ l.push("Fotografías impresas:"); k.imps.forEach(i => l.push("• " + i.n + " × " + i.x.nombre + " pulgadas (" + RD(i.x.precio) + " c/u) = " + RD(i.sub))); }
+  if (k.alb){
+    l.push("Álbum: " + k.alb.nombre + " pulgadas" + (k.alb.lienzos ? ", " + k.alb.lienzos + " lienzos" : "") + " = " + RD(k.alb.precio));
+    if (k.pres) l.push("Presentación del álbum: " + k.pres.nombre + (k.pres.precio ? " = " + RD(k.pres.precio) : " (sin costo)"));
+  }
+  return l;
+}
+function cfgTotalTexto(k){
+  if (k.usd) return k.extras ? "TOTAL DEL PEDIDO: " + k.usd.mon + k.usd.precio.toLocaleString("en-US") + " (paquete) + " + RD(k.extras) + " (adicionales)" : "TOTAL DEL PEDIDO: " + precioTxt(k.usd);
+  return "TOTAL DEL PEDIDO: " + RD(k.total);
+}
+function cfgMensaje(){
+  const k = cfgCalculo();
+  return ["Hola, LJ Fotografías. Quiero solicitar mi paquete personalizado:", ""].concat(cfgLineasTexto(k), ["", cfgTotalTexto(k), "", CONFIG.cierre]).join("\n");
+}
+/* Lo usa el formulario de reserva para incluir los adicionales elegidos */
+function cfgExtrasParaReserva(){
+  if (!CFG) return [];
+  const k = cfgCalculo();
+  if (!k.imps.length && !k.alb) return [];
+  const l = ["", "Adicionales de mi paquete personalizado:"].concat(cfgLineasTexto(Object.assign({}, k, {base: null})));
+  l.push("Total de adicionales: " + RD(k.extras));
+  if (k.base) l.push(cfgTotalTexto(k));
+  return l;
+}
+
+/* Pintado */
+function cfgTabs(){
+  const cats = CATALOGO.filter(c => (c.paquetes || []).some(p => p.precio));
+  $("cfgTabs").innerHTML = cats.map((c, i) => '<button type="button" role="tab" aria-selected="' + (i === CFG.tab) + '" data-i="' + i + '">' + c.nombre + '</button>').join("");
+  $("cfgTabs").querySelectorAll("button").forEach(b => b.addEventListener("click", () => { CFG.tab = +b.dataset.i; cfgTabs(); }));
+  const c = cats[CFG.tab] || cats[0];
+  $("cfgPaqs").innerHTML = c ? c.paquetes.filter(p => p.precio).map((p, k) => '<button type="button" class="cfgPq" role="radio" style="--d:' + k + '" aria-checked="' + (CFG.paq === p.id) + '" data-id="' + p.id + '">' +
+    (p.destacado ? '<span class="cfgTop eti">' + (p.insignia ? "Destacado" : "Favorito") + '</span>' : "") + CFG_OK + '<b>' + p.nombre + '</b><span>' + precioTxt(p) + '</span></button>').join("") : "";
+  $("cfgPaqs").querySelectorAll(".cfgPq").forEach(b => b.addEventListener("click", () => cfgElegirPaq(CFG.paq === b.dataset.id ? null : b.dataset.id, true)));
+  CFG.cats = cats;
+}
+function cfgImps(){
+  $("cfgImps").innerHTML = ADI.impresas.map(x => '<article class="cfgImp" data-id="' + x.id + '">' + CFG_OK +
+    '<div class="cfgEsc"><div class="cfgPapel" style="--w:' + x.ancho + ';--h:' + x.alto + '"><div class="cfgPila"><i></i><i></i></div>' + imgDe(x.foto) + '</div></div>' +
+    '<div class="cfgDato"><h4>' + x.nombre + '<small>pulgadas</small></h4><p class="cfgPu">' + RD(x.precio) + ' <span>por unidad</span></p>' +
+    '<div class="cfgCant"><button type="button" class="menos" aria-label="Quitar una ' + x.nombre + '">−</button><output aria-live="polite" aria-label="Cantidad de ' + x.nombre + '">0</output><button type="button" class="mas" aria-label="Agregar una ' + x.nombre + '">+</button></div>' +
+    '<p class="cfgSt">Subtotal <b>RD$0</b></p></div></article>').join("");
+  $("cfgImps").querySelectorAll(".cfgImp").forEach(el => {
+    const id = el.dataset.id;
+    el.querySelector(".menos").addEventListener("click", () => cfgCantidad(id, -1));
+    el.querySelector(".mas").addEventListener("click", () => cfgCantidad(id, 1));
+  });
+}
+function cfgAlbs(){
+  $("cfgAlbs").innerHTML = ADI.albumes.map(x => '<button type="button" class="cfgAl" role="radio" aria-checked="false" data-id="' + x.id + '">' + CFG_OK +
+    '<div class="cfgEsc"><div class="cfgLibro" style="--w:' + x.ancho + ';--h:' + x.alto + '"><span class="hojas"></span><span class="lomo"></span><span class="tapa">' + imgDe(x.foto) + '</span></div></div>' +
+    '<div class="cfgDato"><h4>' + x.nombre + '<small>pulgadas</small></h4><span class="cfgLz">' + (x.lienzos ? x.lienzos + " lienzos" : "&nbsp;") + '</span><p class="cfgPu">' + RD(x.precio) + '</p></div></button>').join("");
+  $("cfgAlbs").querySelectorAll(".cfgAl").forEach(b => b.addEventListener("click", () => {
+    CFG.alb = CFG.alb === b.dataset.id ? null : b.dataset.id;
+    if (!CFG.alb && ADI.presentaciones[0]) CFG.pres = ADI.presentaciones[0].id;
+    cfgRefrescar();
+    if (CFG.alb && !$("cfgPres").dataset.vista && innerWidth < 1021){ $("cfgPres").dataset.vista = 1; setTimeout(() => $("cfgPres").scrollIntoView({behavior: calma ? "auto" : "smooth", block: "nearest"}), 120); }
+  }));
+  $("cfgPrOps").innerHTML = ADI.presentaciones.map(x => '<button type="button" class="cfgPr" role="radio" aria-checked="false" data-id="' + x.id + '">' + CFG_OK + (CFG_IC[x.tipo] || CFG_IC.caja) +
+    '<b>' + x.nombre + '</b><p class="cfgPu">' + (x.precio ? "+ " + RD(x.precio) : "RD$0") + '</p><small>' + x.desc + '</small></button>').join("");
+  $("cfgPrOps").querySelectorAll(".cfgPr").forEach(b => b.addEventListener("click", () => { CFG.pres = b.dataset.id; cfgRefrescar(); }));
+}
+function cfgCantidad(id, d){
+  const n = Math.min(99, Math.max(0, (CFG.imp[id] || 0) + d));
+  if (n) CFG.imp[id] = n; else delete CFG.imp[id];
+  cfgRefrescar();
+  const o = $("cfgImps").querySelector('[data-id="' + id + '"] output');
+  if (o && !calma){ o.classList.remove("bump"); void o.offsetWidth; o.classList.add("bump"); }
+}
+function cfgElegirPaq(id, desdeModulo){
+  CFG.paq = cfgPaq(id) ? id : null;
+  const s = cfgPaq(CFG.paq);
+  if (s && CFG.cats){ const i = CFG.cats.indexOf(s.c); if (i >= 0) CFG.tab = i; }
+  cfgTabs(); cfgRefrescar();
+  if (desdeModulo && $("paquete")){ $("paquete").value = CFG.paq || ""; if (s) $("tipo").value = s.c.nombre; actualizar(); }
+}
+let cfgPrevTot = 0;
+function cfgRefrescar(){
+  const k = cfgCalculo();
+  ADI.impresas.forEach(x => {
+    const el = $("cfgImps").querySelector('[data-id="' + x.id + '"]'); if (!el) return;
+    const n = CFG.imp[x.id] || 0;
+    el.classList.toggle("on", n > 0); el.classList.toggle("dos", n > 1);
+    el.querySelector("output").textContent = n;
+    el.querySelector(".menos").disabled = !n; el.querySelector(".mas").disabled = n >= 99;
+    el.querySelector(".cfgSt b").textContent = RD(x.precio * n);
+  });
+  $("cfgAlbs").querySelectorAll(".cfgAl").forEach(b => b.setAttribute("aria-checked", b.dataset.id === CFG.alb));
+  $("cfgPres").hidden = !CFG.alb;
+  $("cfgPrOps").querySelectorAll(".cfgPr").forEach(b => b.setAttribute("aria-checked", b.dataset.id === CFG.pres));
+  $("cfgPaqs").querySelectorAll(".cfgPq").forEach(b => b.setAttribute("aria-checked", b.dataset.id === CFG.paq));
+
+  /* Resumen */
+  const li = (a, b, sub) => '<li><span>' + a + (sub ? '<small>' + sub + '</small>' : "") + '</span><b>' + b + '</b></li>';
+  let h = "";
+  if (k.vacio) h = '<p class="cfgVacio">Elige un paquete o agrega impresiones y un álbum para ver tu presupuesto.</p>';
+  else {
+    h = '<ul class="cfgLs">';
+    h += '<li class="gr">Paquete fotográfico</li>' + (k.base ? li(k.base.p.nombre, precioTxt(k.base.p), k.base.c.nombre) : li("Sin paquete seleccionado", "—"));
+    if (k.imps.length){ h += '<li class="gr">Fotografías impresas</li>' + k.imps.map(i => li(i.x.nombre + " pulg.", RD(i.sub), i.n + " × " + RD(i.x.precio))).join(""); if (k.imps.length > 1) h += li("Subtotal impresas", RD(k.tImp)); }
+    if (k.alb){ h += '<li class="gr">Álbum</li>' + li(k.alb.nombre + " pulg.", RD(k.alb.precio), k.alb.lienzos ? k.alb.lienzos + " lienzos" : ""); if (k.pres) h += li(k.pres.nombre, k.pres.precio ? RD(k.pres.precio) : "RD$0", "Presentación"); }
+    if (k.extras && k.base) h += li("Subtotal adicionales", RD(k.extras));
+    h += '</ul>';
+  }
+  $("cfgLineas").innerHTML = h;
+  const tTxt = k.usd ? (k.extras ? RD(k.extras) : precioTxt(k.usd)) : RD(k.total);
+  const tEl = $("cfgTotal");
+  if (!k.usd && k.total !== cfgPrevTot && !calma){ contarA(tEl, cfgPrevTot, k.total, "RD$"); tEl.classList.remove("pulso"); void tEl.offsetWidth; tEl.classList.add("pulso"); }
+  else tEl.textContent = tTxt;
+  cfgPrevTot = k.usd ? 0 : k.total;
+  $("cfgTotNota").textContent = k.usd ? (k.extras ? "Más el paquete " + k.usd.nombre + " de " + precioTxt(k.usd) + ", que se cotiza en dólares." : "Este paquete se cotiza en dólares.") : (k.vacio ? "" : "Precios en pesos dominicanos.");
+  $("cfgBarTot").textContent = tTxt;
+  const wa = $("cfgWa");
+  wa.classList.toggle("off", k.vacio); wa.setAttribute("aria-disabled", k.vacio);
+  wa.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(cfgMensaje());
+  cfgGuardar();
+  if (typeof actualizar === "function" && $("previa")) actualizar();
+}
+
+CFG = cfgCargar();
+cfgTabs(); cfgImps(); cfgAlbs();
+if (CFG.paq){ const s = cfgPaq(CFG.paq), i = CFG.cats.indexOf(s.c); if (i >= 0){ CFG.tab = i; cfgTabs(); } $("paquete").value = CFG.paq; $("tipo").value = s.c.nombre; }
+cfgRefrescar();
+$("cfgWa").addEventListener("click", e => {
+  if (cfgCalculo().vacio){ e.preventDefault(); $("cfgEstado").textContent = "Elige al menos un paquete o un adicional para enviar tu pedido."; return; }
+  $("cfgWa").href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(cfgMensaje());
+  $("cfgEstado").textContent = "Se abrió WhatsApp con tu pedido. Envíalo desde ahí y te confirmamos disponibilidad.";
+});
+$("cfgLimpiar").addEventListener("click", () => {
+  CFG.paq = null; CFG.imp = {}; CFG.alb = null; CFG.pres = ADI.presentaciones[0] ? ADI.presentaciones[0].id : null;
+  cfgTabs(); cfgRefrescar(); $("paquete").value = ""; actualizar();
+  $("cfgEstado").textContent = "Listo, empezamos de nuevo.";
+});
+$("cfgReserva").addEventListener("click", () => {
+  if (CFG.paq){ $("paquete").value = CFG.paq; $("tipo").value = cfgPaq(CFG.paq).c.nombre; }
+  actualizar(); irA("reservar");
+  const cc = $("paquete").closest(".campo"); cc.classList.remove("destaca"); void cc.offsetWidth; cc.classList.add("destaca");
+  if (fino) setTimeout(() => $("nombre").focus({preventScroll: true}), 600);
+});
+$("paquete").addEventListener("change", () => { const v = $("paquete").value; if (v !== (CFG.paq || "") && (cfgPaq(v) || !v)) cfgElegirPaq(v || null, false); });
+function personalizar(c, p){
+  cerrarTodo(); cfgElegirPaq(p.id, true); irA("personaliza");
+}
+/* Barra fija en teléfonos: visible dentro del módulo mientras el resumen no está a la vista */
+(function(){
+  const barra = $("cfgBarra"); let enMod = false, enRes = false;
+  const pinta = () => barra.classList.toggle("ver", enMod && !enRes && innerWidth < 1021);
+  if ("IntersectionObserver" in window){
+    new IntersectionObserver(es => { enMod = es[0].isIntersecting; pinta(); }, {rootMargin: "0px 0px -35% 0px"}).observe($("personaliza").querySelector(".cfgPasos"));
+    new IntersectionObserver(es => { enRes = es[0].isIntersecting; pinta(); }).observe($("cfgRes"));
+  }
+  addEventListener("resize", pinta);
+  $("cfgBarBtn").addEventListener("click", () => $("cfgRes").scrollIntoView({behavior: calma ? "auto" : "smooth", block: "start"}));
+})();
+
 /* Entradas al bajar y sección activa en el menú */
 if ("IntersectionObserver" in window){
   if (!calma){
@@ -1740,7 +2157,7 @@ if ("IntersectionObserver" in window){
   const act = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) enlaces.forEach(a => a.classList.toggle("activa", a.getAttribute("href") === "#" + e.target.id));
   }), {rootMargin:"-45% 0px -50% 0px"});
-  ["portafolio", "experiencias", "nosotros", "reservar"].forEach(id => act.observe($(id)));
+  ["portafolio", "experiencias", "personaliza", "nosotros", "reservar"].forEach(id => act.observe($(id)));
 }
 </script>
 </body>

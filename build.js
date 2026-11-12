@@ -51,6 +51,7 @@ let html = fs.readFileSync(path.join(raiz, "src", "index.html"), "utf8");
 html = html
   .replace("/*@@CONFIG@@*/null", seguro(datos.config))
   .replace("/*@@CATALOGO@@*/null", seguro(datos.categorias))
+  .replace("/*@@ADICIONALES@@*/null", seguro(datos.adicionales || {}))
   .replace("<!--@@JSONLD@@-->", '<script type="application/ld+json">' + seguro(negocio) + "</script>")
   .split("@@DOMINIO@@").join(dominio);
 

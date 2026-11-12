@@ -40,7 +40,7 @@ La página ya incluye título, descripción, imagen para compartir y datos estru
 
 ## Editar después
 
-**Tú, sin código:** entra a app.pagescms.org con GitHub, elige `ljfotografias-web` y abre **Catálogo y precios**. Puedes cambiar precios, beneficios, fotos, servicios y el número de WhatsApp. Al guardar, GitHub publica el cambio en uno o dos minutos.
+**Tú, sin código:** entra a app.pagescms.org con GitHub, elige `ljfotografias-web` y abre **Catálogo y precios**. Puedes cambiar precios, beneficios, fotos, servicios, el número de WhatsApp y, en **Personaliza tu paquete (adicionales)**, las fotos impresas, los álbumes y sus presentaciones (agregar, quitar o cambiar precios). Al guardar, GitHub publica el cambio en uno o dos minutos.
 
 **Con Claude:** pide el cambio en el chat (nuevas secciones, animaciones, diseño). Con GitHub conectado, Claude sube el cambio al repositorio y GitHub lo publica solo.
 

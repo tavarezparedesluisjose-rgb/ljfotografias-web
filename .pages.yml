@@ -180,3 +180,93 @@ content:
               - name: corto
                 label: Descripción corta
                 type: text
+      - name: adicionales
+        label: Personaliza tu paquete (adicionales)
+        type: object
+        fields:
+          - name: impresas
+            label: Fotografías impresas
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{nombre} · RD${precio}"
+            fields:
+              - name: id
+                label: Identificador (minúsculas, sin espacios, ej. imp-8x10)
+                type: string
+                required: true
+              - name: nombre
+                label: Nombre (ej. Foto 8 × 10)
+                type: string
+                required: true
+              - name: ancho
+                label: Ancho en pulgadas
+                type: number
+              - name: alto
+                label: Alto en pulgadas
+                type: number
+              - name: precio
+                label: Precio por unidad (RD$)
+                type: number
+              - name: foto
+                label: Foto ilustrativa
+                type: image
+          - name: albumes
+            label: Álbumes (el cliente elige uno)
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{nombre} · RD${precio}"
+            fields:
+              - name: id
+                label: Identificador (minúsculas, sin espacios, ej. alb-10x10)
+                type: string
+                required: true
+              - name: nombre
+                label: Nombre (ej. Álbum 10 × 10)
+                type: string
+                required: true
+              - name: ancho
+                label: Ancho en pulgadas
+                type: number
+              - name: alto
+                label: Alto en pulgadas
+                type: number
+              - name: lienzos
+                label: Lienzos
+                type: number
+              - name: precio
+                label: Precio (RD$)
+                type: number
+              - name: foto
+                label: Foto de portada
+                type: image
+          - name: presentaciones
+            label: Presentación del álbum (el cliente elige una; la primera es la opción por defecto)
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{nombre} · RD${precio}"
+            fields:
+              - name: id
+                label: Identificador (minúsculas, sin espacios)
+                type: string
+                required: true
+              - name: nombre
+                label: Nombre
+                type: string
+                required: true
+              - name: precio
+                label: Precio adicional (RD$, 0 si no tiene costo)
+                type: number
+              - name: desc
+                label: Descripción corta
+                type: text
+              - name: tipo
+                label: Ícono (ninguno, caja o bolso)
+                type: select
+                options:
+                  values: [ninguno, caja, bolso]

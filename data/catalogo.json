@@ -700,5 +700,85 @@
         }
       ]
     }
-  ]
+  ],
+  "adicionales": {
+    "impresas": [
+      {
+        "id": "imp-6x8",
+        "nombre": "Foto 6 × 8",
+        "ancho": 6,
+        "alto": 8,
+        "precio": 120,
+        "foto": "img/ig-c8.jpg"
+      },
+      {
+        "id": "imp-8x10",
+        "nombre": "Foto 8 × 10",
+        "ancho": 8,
+        "alto": 10,
+        "precio": 210,
+        "foto": "img/ig-a3.jpg"
+      },
+      {
+        "id": "imp-11x14",
+        "nombre": "Foto 11 × 14",
+        "ancho": 11,
+        "alto": 14,
+        "precio": 850,
+        "foto": "img/ig-f5.jpg"
+      }
+    ],
+    "albumes": [
+      {
+        "id": "alb-8x10",
+        "nombre": "Álbum 8 × 10",
+        "ancho": 8,
+        "alto": 10,
+        "lienzos": 10,
+        "precio": 4600,
+        "foto": "img/ig-c2.jpg"
+      },
+      {
+        "id": "alb-10x10",
+        "nombre": "Álbum 10 × 10",
+        "ancho": 10,
+        "alto": 10,
+        "lienzos": 10,
+        "precio": 6800,
+        "foto": "img/ig-j2.jpg"
+      },
+      {
+        "id": "alb-11x14",
+        "nombre": "Álbum 11 × 14",
+        "ancho": 11,
+        "alto": 14,
+        "lienzos": 10,
+        "precio": 8500,
+        "foto": "img/ig-c4.jpg"
+      }
+    ],
+    "presentaciones": [
+      {
+        "id": "sin",
+        "nombre": "Sin accesorio adicional",
+        "precio": 0,
+        "desc": "El álbum se entrega tal cual, listo para disfrutar.",
+        "tipo": "ninguno"
+      },
+      {
+        "id": "caja",
+        "nombre": "Caja de madera personalizada",
+        "precio": 2000,
+        "desc": "Caja de madera personalizada con una fotografía tuya.",
+        "tipo": "caja"
+      },
+      {
+        "id": "bolso",
+        "nombre": "Bolso para álbum",
+        "precio": 850,
+        "desc": "Presentación protectora para transportar el álbum.",
+        "tipo": "bolso"
+      }
+    ]
+  }
 }
