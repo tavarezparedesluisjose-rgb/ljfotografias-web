@@ -1,0 +1,704 @@
+{
+  "config": {
+    "whatsapp": "18097295312",
+    "whatsappVisible": "809-729-5312",
+    "cierre": "Me gustaría recibir información sobre disponibilidad y condiciones de contratación.",
+    "dominio": "tavarezparedesluisjose.com"
+  },
+  "categorias": [
+    {
+      "id": "bodas",
+      "nombre": "Bodas",
+      "portada": "img/ig-c8.jpg",
+      "comparar": true,
+      "desc": "Del sí acepto al último baile: cobertura, sesiones especiales y recuerdos impresos para el día más importante.",
+      "galeria": [
+        "Bodas",
+        "Parejas",
+        "Propuestas"
+      ],
+      "tipos": [
+        "Preboda",
+        "Juzgado civil",
+        "Save the Date",
+        "Trash the Dress"
+      ],
+      "paquetes": [
+        {
+          "id": "boda-basica",
+          "nombre": "Boda Básica",
+          "mon": "RD$",
+          "precio": 12000,
+          "foto": "img/ig-c10.jpg",
+          "horas": "1 h",
+          "horasTxt": "1 hora",
+          "fotos": 20,
+          "entrega": "Enlace privado",
+          "usb": false,
+          "galeriaOnline": false,
+          "album": null,
+          "caja": false,
+          "impresas": [],
+          "enmarcadas": [],
+          "sesiones": [
+            "Juzgado civil",
+            "Preboda"
+          ],
+          "corto": "Lo esencial de tu boda civil, con sesión preboda incluida.",
+          "beneficios": [
+            "Cobertura fotográfica de 1 hora",
+            "20 fotografías editadas en alta resolución",
+            "Entrega digital mediante enlace privado",
+            "Sesión especial de los novios en el juzgado civil",
+            "Sesión preboda"
+          ]
+        },
+        {
+          "id": "boda-premium",
+          "nombre": "Boda Premium",
+          "mon": "RD$",
+          "precio": 18000,
+          "foto": "img/ig-c2.jpg",
+          "horas": "1 h",
+          "horasTxt": "1 hora",
+          "fotos": 35,
+          "entrega": "USB",
+          "usb": true,
+          "galeriaOnline": false,
+          "album": null,
+          "caja": false,
+          "impresas": [
+            {
+              "tamano": "8x11",
+              "cantidad": 5
+            },
+            {
+              "tamano": "5x7",
+              "cantidad": 10
+            }
+          ],
+          "enmarcadas": [],
+          "sesiones": [
+            "Save the Date"
+          ],
+          "corto": "Preparativos, ceremonia y recepción, con fotos impresas y Save the Date.",
+          "beneficios": [
+            "Cobertura de 1 hora",
+            "Fotografías de preparativos, ceremonia y parte de la recepción",
+            "35 fotografías editadas en alta resolución",
+            "USB con fotografías digitales",
+            "5 fotografías impresas de 8x11 pulgadas",
+            "10 fotografías impresas de 5x7 pulgadas",
+            "Sesión de pareja previa a la boda (Save the Date)"
+          ]
+        },
+        {
+          "id": "boda-vip",
+          "nombre": "Boda VIP",
+          "mon": "RD$",
+          "precio": 26300,
+          "foto": "img/ig-i1.jpg",
+          "horas": "2 h",
+          "horasTxt": "Hasta 2 horas",
+          "fotos": 50,
+          "entrega": "USB y galería online",
+          "usb": true,
+          "galeriaOnline": true,
+          "album": {
+            "tam": 12,
+            "pags": 13
+          },
+          "caja": true,
+          "impresas": [
+            {
+              "tamano": "8x12",
+              "cantidad": 1
+            }
+          ],
+          "enmarcadas": [],
+          "sesiones": [
+            "Preboda",
+            "Juzgado civil",
+            "Trash the Dress"
+          ],
+          "corto": "Álbum de lujo en caja de madera y tres sesiones especiales.",
+          "beneficios": [
+            "Cobertura de hasta 2 horas",
+            "50 fotografías editadas en alta resolución",
+            "Entrega en USB",
+            "Galería online privada",
+            "Álbum fotográfico de lujo de 12x12 pulgadas con 13 páginas",
+            "Caja de madera",
+            "Sesión preboda",
+            "Sesión en el juzgado civil",
+            "Sesión Trash the Dress",
+            "1 fotografía impresa de 8x12 pulgadas"
+          ]
+        },
+        {
+          "id": "boda-ultra-vip",
+          "nombre": "Boda Ultra VIP",
+          "mon": "RD$",
+          "precio": 29300,
+          "foto": "img/ig-i2.jpg",
+          "destacado": true,
+          "insignia": "La experiencia completa",
+          "horas": "2 h",
+          "horasTxt": "Hasta 2 horas",
+          "fotos": 50,
+          "entrega": "USB y galería online",
+          "usb": true,
+          "galeriaOnline": true,
+          "album": {
+            "tam": 12,
+            "pags": 13
+          },
+          "caja": true,
+          "impresas": [
+            {
+              "tamano": "8x12",
+              "cantidad": 1
+            },
+            {
+              "tamano": "6x8",
+              "cantidad": 10
+            }
+          ],
+          "enmarcadas": [
+            {
+              "tamano": "11x18",
+              "cantidad": 1
+            }
+          ],
+          "sesiones": [
+            "Preboda",
+            "Juzgado civil",
+            "Trash the Dress"
+          ],
+          "corto": "Todo lo del VIP, más una foto enmarcada de 11x18 y 10 impresiones de 6x8.",
+          "beneficios": [
+            "Cobertura de hasta 2 horas",
+            "50 fotografías editadas en alta resolución",
+            "Entrega en USB",
+            "Galería online privada",
+            "Álbum fotográfico de lujo de 12x12 pulgadas con 13 páginas",
+            "Caja de madera",
+            "Sesión preboda",
+            "Sesión en el juzgado civil",
+            "Sesión Trash the Dress",
+            "1 fotografía impresa de 8x12 pulgadas",
+            "1 fotografía enmarcada de 11x18 pulgadas",
+            "10 fotografías impresas de 6x8 pulgadas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quince",
+      "nombre": "Quince años",
+      "portada": "img/ig-a3.jpg",
+      "comparar": true,
+      "desc": "Una etapa que merece ser recordada: sesión con vestido, entrada, ceremonia y celebración.",
+      "galeria": [
+        "Quinceañeras"
+      ],
+      "tipos": [
+        "Sesión con vestido",
+        "Sesión individual",
+        "Entrada y ceremonia",
+        "Celebración"
+      ],
+      "paquetes": [
+        {
+          "id": "quince-basica",
+          "nombre": "Quinceañera Básica",
+          "mon": "RD$",
+          "precio": 12000,
+          "foto": "img/ig-a0.jpg",
+          "horas": "1 h",
+          "horasTxt": "1 hora",
+          "fotos": 20,
+          "entrega": "Enlace privado",
+          "usb": false,
+          "galeriaOnline": false,
+          "album": null,
+          "caja": false,
+          "impresas": [],
+          "enmarcadas": [],
+          "sesiones": [
+            "Sesión individual",
+            "Fotos con vestido"
+          ],
+          "corto": "Sesión individual con tu vestido de quinceañera.",
+          "beneficios": [
+            "Cobertura de 1 hora",
+            "20 fotografías editadas",
+            "Entrega digital mediante enlace privado",
+            "Sesión individual de quinceañera",
+            "Fotografías con vestido de quinceañera"
+          ]
+        },
+        {
+          "id": "quince-premium",
+          "nombre": "Quinceañera Premium",
+          "mon": "RD$",
+          "precio": 18000,
+          "foto": "img/ig-j1.jpg",
+          "horas": "1 h",
+          "horasTxt": "1 hora",
+          "fotos": 35,
+          "entrega": "USB",
+          "usb": true,
+          "galeriaOnline": false,
+          "album": null,
+          "caja": false,
+          "impresas": [
+            {
+              "tamano": "8x11",
+              "cantidad": 5
+            },
+            {
+              "tamano": "5x7",
+              "cantidad": 10
+            }
+          ],
+          "enmarcadas": [],
+          "sesiones": [
+            "Sesión previa"
+          ],
+          "corto": "Entrada, ceremonia y celebración, con fotos impresas y sesión previa.",
+          "beneficios": [
+            "Cobertura de 1 hora",
+            "Fotografías de entrada, ceremonia y parte de la celebración",
+            "35 fotografías editadas",
+            "USB",
+            "5 fotografías impresas de 8x11 pulgadas",
+            "10 fotografías impresas de 5x7 pulgadas",
+            "Sesión fotográfica previa"
+          ]
+        },
+        {
+          "id": "quince-vip",
+          "nombre": "Quinceañera VIP",
+          "mon": "RD$",
+          "precio": 26300,
+          "foto": "img/ig-a2.jpg",
+          "horas": "2 h",
+          "horasTxt": "Hasta 2 horas",
+          "fotos": 50,
+          "entrega": "USB y galería privada",
+          "usb": true,
+          "galeriaOnline": true,
+          "album": {
+            "tam": 12,
+            "pags": 13
+          },
+          "caja": true,
+          "impresas": [
+            {
+              "tamano": "8x12",
+              "cantidad": 1
+            }
+          ],
+          "enmarcadas": [],
+          "sesiones": [
+            "Sesión previa con vestido",
+            "Sesión individual"
+          ],
+          "corto": "Álbum de lujo en caja de madera y dos sesiones especiales.",
+          "beneficios": [
+            "Cobertura de hasta 2 horas",
+            "50 fotografías editadas",
+            "USB",
+            "Galería privada",
+            "Álbum de lujo de 12x12 pulgadas con 13 páginas",
+            "Caja de madera",
+            "Sesión previa con vestido",
+            "Sesión individual",
+            "1 fotografía impresa de 8x12 pulgadas"
+          ]
+        },
+        {
+          "id": "quince-ultra-vip",
+          "nombre": "Quinceañera Ultra VIP",
+          "mon": "RD$",
+          "precio": 29300,
+          "foto": "img/ig-j3.jpg",
+          "destacado": true,
+          "insignia": "La experiencia completa",
+          "horas": "2 h",
+          "horasTxt": "Hasta 2 horas",
+          "fotos": 50,
+          "entrega": "USB y galería privada",
+          "usb": true,
+          "galeriaOnline": true,
+          "album": {
+            "tam": 12,
+            "pags": 13
+          },
+          "caja": true,
+          "impresas": [
+            {
+              "tamano": "8x12",
+              "cantidad": 1
+            },
+            {
+              "tamano": "6x8",
+              "cantidad": 10
+            }
+          ],
+          "enmarcadas": [
+            {
+              "tamano": "11x18",
+              "cantidad": 1
+            }
+          ],
+          "sesiones": [
+            "Sesión previa",
+            "Sesión individual"
+          ],
+          "corto": "Todo lo del VIP, más una foto enmarcada de 11x18 y 10 impresiones de 6x8.",
+          "beneficios": [
+            "Cobertura de hasta 2 horas",
+            "50 fotografías editadas",
+            "USB",
+            "Galería privada",
+            "Álbum de lujo de 12x12 pulgadas con 13 páginas",
+            "Caja de madera",
+            "Sesión previa",
+            "Sesión individual",
+            "1 fotografía impresa de 8x12 pulgadas",
+            "1 fotografía enmarcada de 11x18 pulgadas",
+            "10 fotografías impresas de 6x8 pulgadas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "retratos",
+      "nombre": "Retratos",
+      "portada": "img/ig-f5.jpg",
+      "desc": "Retratos que reflejan quién eres: para ti, tu perfil profesional o tu empresa.",
+      "galeria": [
+        "Retratos"
+      ],
+      "servicios": [
+        {
+          "nombre": "Retratos individuales",
+          "foto": "img/ig-f5.jpg",
+          "corto": "Una sesión para ti, en exteriores o en el lugar que elijas."
+        },
+        {
+          "nombre": "Retratos profesionales",
+          "foto": "img/ig-c5.jpg",
+          "corto": "Imagen cuidada para tu perfil, portafolio o redes."
+        },
+        {
+          "nombre": "Retratos corporativos",
+          "foto": "img/ig-g0.jpg",
+          "corto": "Retratos para equipos y empresas, con un estilo uniforme."
+        },
+        {
+          "nombre": "Retratos artísticos",
+          "foto": "img/ig-j0.jpg",
+          "corto": "Sesiones con concepto, luz y vestuario de autor."
+        }
+      ]
+    },
+    {
+      "id": "casuales",
+      "nombre": "Sesiones casuales",
+      "portada": "img/ig-b1.jpg",
+      "albumOpcional": true,
+      "desc": "Parejas, familias, embarazadas y celebraciones, al aire libre en Punta Cana.",
+      "galeria": [
+        "Parejas",
+        "Familia",
+        "Propuestas",
+        "Retratos"
+      ],
+      "tipos": [
+        "Parejas",
+        "Familias",
+        "Embarazadas",
+        "Cumpleaños",
+        "Aniversarios",
+        "Save the Date"
+      ],
+      "paquetes": [
+        {
+          "id": "casual-basic",
+          "nombre": "Basic Pack",
+          "mon": "US$",
+          "precio": 350,
+          "foto": "img/ig-b2.jpg",
+          "fotos": 30,
+          "entrega": "Digital",
+          "usb": false,
+          "impresas": [
+            {
+              "tamano": "6x8",
+              "cantidad": 5
+            },
+            {
+              "tamano": "8x10",
+              "cantidad": 1
+            }
+          ],
+          "enmarcadas": [],
+          "corto": "Una sesión en un lugar, con 30 fotos y 6 impresiones.",
+          "beneficios": [
+            "30 fotos digitales",
+            "5 fotos impresas de 6x8 pulgadas",
+            "1 foto impresa de 8x10 pulgadas",
+            "Sesión en un lugar"
+          ]
+        },
+        {
+          "id": "casual-standard",
+          "nombre": "Standard",
+          "mon": "US$",
+          "precio": 420,
+          "foto": "img/ig-c0.jpg",
+          "fotos": 40,
+          "entrega": "Digital",
+          "usb": false,
+          "impresas": [
+            {
+              "tamano": "6x8",
+              "cantidad": 6
+            },
+            {
+              "tamano": "5x7",
+              "cantidad": 2
+            },
+            {
+              "tamano": "8x10",
+              "cantidad": 1
+            },
+            {
+              "tamano": "11x14",
+              "cantidad": 1
+            }
+          ],
+          "enmarcadas": [],
+          "corto": "40 fotos y 10 impresiones en cuatro tamaños.",
+          "beneficios": [
+            "40 fotos digitales",
+            "6 fotos impresas de 6x8 pulgadas",
+            "2 fotos impresas de 5x7 pulgadas",
+            "1 foto impresa de 8x10 pulgadas",
+            "1 foto impresa de 11x14 pulgadas"
+          ]
+        },
+        {
+          "id": "casual-premium",
+          "nombre": "Premium",
+          "mon": "US$",
+          "precio": 550,
+          "foto": "img/ig-d0.jpg",
+          "fotos": 50,
+          "entrega": "USB",
+          "usb": true,
+          "impresas": [
+            {
+              "tamano": "6x8",
+              "cantidad": 6
+            },
+            {
+              "tamano": "5x7",
+              "cantidad": 2
+            },
+            {
+              "tamano": "8x10",
+              "cantidad": 1
+            },
+            {
+              "tamano": "11x14",
+              "cantidad": 1
+            },
+            {
+              "tamano": "10x15",
+              "cantidad": 1
+            }
+          ],
+          "enmarcadas": [],
+          "corto": "50 fotos en USB y 11 impresiones, hasta 10x15.",
+          "beneficios": [
+            "50 fotos digitales en USB",
+            "6 fotos impresas de 6x8 pulgadas",
+            "2 fotos impresas de 5x7 pulgadas",
+            "1 foto impresa de 8x10 pulgadas",
+            "1 foto impresa de 11x14 pulgadas",
+            "1 foto impresa de 10x15 pulgadas"
+          ]
+        },
+        {
+          "id": "casual-excellent",
+          "nombre": "Excellent Package",
+          "mon": "US$",
+          "precio": 650,
+          "foto": "img/ig-c1.jpg",
+          "fotos": 50,
+          "entrega": "USB",
+          "usb": true,
+          "destacado": true,
+          "insignia": "El más completo",
+          "cristal": true,
+          "impresas": [
+            {
+              "tamano": "6x8",
+              "cantidad": 6
+            },
+            {
+              "tamano": "5x7",
+              "cantidad": 2
+            },
+            {
+              "tamano": "8x10",
+              "cantidad": 2
+            },
+            {
+              "tamano": "11x14",
+              "cantidad": 1
+            },
+            {
+              "tamano": "10x15",
+              "cantidad": 1
+            }
+          ],
+          "enmarcadas": [
+            {
+              "tamano": "10x15",
+              "cantidad": 1
+            }
+          ],
+          "corto": "Todo el Premium, más una 8x10 extra y una 10x15 enmarcada en cristal.",
+          "beneficios": [
+            "50 fotos digitales en USB",
+            "6 fotos impresas de 6x8 pulgadas",
+            "2 fotos impresas de 5x7 pulgadas",
+            "2 fotos impresas de 8x10 pulgadas",
+            "1 foto impresa de 11x14 pulgadas",
+            "1 foto impresa de 10x15 pulgadas",
+            "1 foto de 10x15 pulgadas enmarcada, impresión en cristal"
+          ]
+        },
+        {
+          "id": "casual-extra-basico",
+          "nombre": "Extra básico",
+          "mon": "US$",
+          "precio": 150,
+          "foto": "img/ig-f1.jpg",
+          "fotos": 30,
+          "entrega": "WeTransfer",
+          "usb": false,
+          "impresas": [],
+          "enmarcadas": [],
+          "corto": "30 fotos digitales, entregadas por WeTransfer.",
+          "beneficios": [
+            "30 fotos digitales",
+            "Entrega por WeTransfer"
+          ]
+        },
+        {
+          "id": "casual-economic-premium",
+          "nombre": "Economic premium",
+          "mon": "US$",
+          "precio": 160,
+          "foto": "img/ig-k1.jpg",
+          "fotos": 40,
+          "entrega": "WeTransfer",
+          "usb": false,
+          "impresas": [],
+          "enmarcadas": [],
+          "corto": "40 fotos digitales, entregadas por WeTransfer.",
+          "beneficios": [
+            "40 fotos digitales",
+            "Entrega por WeTransfer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inmobiliaria",
+      "nombre": "Fotografía inmobiliaria",
+      "portada": null,
+      "desc": "Apartamentos, villas y propiedades de lujo, con fotografía de interiores, drones y recorridos en video.",
+      "galeria": [],
+      "servicios": [
+        {
+          "nombre": "Apartamentos",
+          "corto": "Espacios luminosos que ayudan a vender o alquilar."
+        },
+        {
+          "nombre": "Villas",
+          "corto": "Villas completas: exteriores, piscina y entorno."
+        },
+        {
+          "nombre": "Propiedades de lujo",
+          "corto": "Presentación editorial para propiedades exclusivas."
+        },
+        {
+          "nombre": "Fotografía arquitectónica",
+          "corto": "Líneas, volúmenes y fachadas con perspectiva cuidada."
+        },
+        {
+          "nombre": "Fotografía de interiores",
+          "corto": "Ambientes con luz natural y composición equilibrada."
+        },
+        {
+          "nombre": "Fotografía con drones",
+          "corto": "Vistas aéreas de la propiedad y su ubicación."
+        },
+        {
+          "nombre": "Videos inmobiliarios",
+          "corto": "Piezas de video para anuncios y redes sociales."
+        },
+        {
+          "nombre": "Recorridos audiovisuales",
+          "corto": "Recorridos que muestran la propiedad de principio a fin."
+        }
+      ]
+    },
+    {
+      "id": "eventos",
+      "nombre": "Eventos especiales",
+      "portada": "img/ig-h0.jpg",
+      "desc": "Cumpleaños, bautizos, graduaciones y celebraciones privadas o corporativas.",
+      "galeria": [
+        "Familia",
+        "Bodas"
+      ],
+      "servicios": [
+        {
+          "nombre": "Cumpleaños",
+          "foto": "img/ig-h0.jpg",
+          "corto": "Decoración, invitados y los momentos de la celebración."
+        },
+        {
+          "nombre": "Bautizos",
+          "corto": "La ceremonia y el encuentro con la familia."
+        },
+        {
+          "nombre": "Graduaciones",
+          "corto": "El logro, la toga y la celebración con los tuyos."
+        },
+        {
+          "nombre": "Eventos corporativos",
+          "corto": "Conferencias, lanzamientos y actividades de empresa."
+        },
+        {
+          "nombre": "Aniversarios",
+          "foto": "img/ig-b0.jpg",
+          "corto": "Celebra los años juntos con una sesión o la fiesta completa."
+        },
+        {
+          "nombre": "Celebraciones privadas",
+          "foto": "img/ig-h2.jpg",
+          "corto": "Reuniones íntimas con la cobertura que necesites."
+        }
+      ]
+    }
+  ]
+}

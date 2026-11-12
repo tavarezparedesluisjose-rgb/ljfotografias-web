@@ -1,0 +1,182 @@
+# Panel de edición de LJ Fotografías (Pages CMS: https://app.pagescms.org)
+# Cada cambio guardado aquí se publica solo en la página.
+media:
+  input: img
+  output: img
+
+content:
+  - name: catalogo
+    label: Catálogo y precios
+    type: file
+    path: data/catalogo.json
+    format: json
+    fields:
+      - name: config
+        label: Datos del negocio
+        type: object
+        fields:
+          - name: whatsapp
+            label: WhatsApp (código de país y número, solo dígitos, ej. 18097295312)
+            type: string
+            required: true
+          - name: whatsappVisible
+            label: WhatsApp como se muestra (ej. 809-729-5312)
+            type: string
+          - name: dominio
+            label: Dominio (sin https://)
+            type: string
+          - name: cierre
+            label: Frase final del mensaje de WhatsApp
+            type: text
+      - name: categorias
+        label: Experiencias
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{nombre}"
+        fields:
+          - name: id
+            label: Identificador (minúsculas, sin espacios)
+            type: string
+            required: true
+          - name: nombre
+            label: Nombre
+            type: string
+            required: true
+          - name: portada
+            label: Foto de portada
+            type: image
+          - name: desc
+            label: Descripción
+            type: text
+          - name: comparar
+            label: Mostrar comparador de paquetes (necesita un paquete destacado que no sea el primero)
+            type: boolean
+          - name: albumOpcional
+            label: Ofrecer álbum opcional en la demostración
+            type: boolean
+          - name: galeria
+            label: Categorías del portafolio para la galería (Bodas, Parejas, Propuestas, Quinceañeras, Retratos, Familia)
+            type: string
+            list: true
+          - name: tipos
+            label: Etiquetas que se muestran
+            type: string
+            list: true
+          - name: paquetes
+            label: Paquetes con precio
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{nombre} · {mon}{precio}"
+            fields:
+              - name: id
+                label: Identificador (minúsculas, sin espacios)
+                type: string
+                required: true
+              - name: nombre
+                label: Nombre
+                type: string
+                required: true
+              - name: mon
+                label: Moneda (RD$ o US$)
+                type: string
+              - name: precio
+                label: Precio
+                type: number
+              - name: foto
+                label: Foto
+                type: image
+              - name: destacado
+                label: Destacado
+                type: boolean
+              - name: insignia
+                label: Etiqueta del destacado (ej. La experiencia completa)
+                type: string
+              - name: horas
+                label: Cobertura corta (ej. 2 h)
+                type: string
+              - name: horasTxt
+                label: Cobertura completa (ej. Hasta 2 horas)
+                type: string
+              - name: fotos
+                label: Fotografías editadas
+                type: number
+              - name: entrega
+                label: Entrega (ej. USB y galería online)
+                type: string
+              - name: usb
+                label: Incluye USB
+                type: boolean
+              - name: galeriaOnline
+                label: Incluye galería online privada
+                type: boolean
+              - name: caja
+                label: Incluye caja de madera
+                type: boolean
+              - name: cristal
+                label: Enmarcada con impresión en cristal
+                type: boolean
+              - name: album
+                label: Álbum (déjalo vacío si no incluye)
+                type: object
+                fields:
+                  - name: tam
+                    label: Tamaño en pulgadas (ej. 12)
+                    type: number
+                  - name: pags
+                    label: Páginas
+                    type: number
+              - name: impresas
+                label: Fotografías impresas
+                type: object
+                list: true
+                fields:
+                  - name: tamano
+                    label: Tamaño (ej. 8x11)
+                    type: string
+                  - name: cantidad
+                    label: Cantidad
+                    type: number
+              - name: enmarcadas
+                label: Fotografías enmarcadas
+                type: object
+                list: true
+                fields:
+                  - name: tamano
+                    label: Tamaño (ej. 11x18)
+                    type: string
+                  - name: cantidad
+                    label: Cantidad
+                    type: number
+              - name: sesiones
+                label: Sesiones adicionales
+                type: string
+                list: true
+              - name: corto
+                label: Descripción corta
+                type: text
+              - name: beneficios
+                label: Lista completa de beneficios
+                type: string
+                list: true
+          - name: servicios
+            label: Servicios con cotización (sin precio)
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{nombre}"
+            fields:
+              - name: nombre
+                label: Nombre
+                type: string
+                required: true
+              - name: foto
+                label: Foto (opcional)
+                type: image
+              - name: corto
+                label: Descripción corta
+                type: text
