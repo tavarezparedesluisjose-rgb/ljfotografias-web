@@ -813,6 +813,17 @@ table.ct{width:100%;border-collapse:collapse;min-width:780px;font-size:.92rem}
 .cfgH p{margin:0;color:var(--gris);font-size:.95rem}
 .cfgOpc{display:inline-block;margin-left:10px;color:var(--gris);vertical-align:middle}
 
+/* Selector de moneda */
+.cfgMonW{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:28px}
+.cfgMon{display:inline-flex;border:1px solid var(--linea);padding:3px;background:#fff}
+.cfgMon button{background:none;border:0;padding:10px 18px;cursor:pointer;color:var(--gris);transition:background .4s var(--lento),color .4s}
+.cfgMon button[aria-checked="true"]{background:var(--tinta);color:#fff}
+.cfgTasaTxt{color:var(--gris);font-size:.62rem}
+.cfgTkCab{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 18px}
+.cfgTkCab p.eti{margin:0;color:var(--oro)}
+.cfgMonT{background:transparent;border-color:rgba(255,255,255,.18);padding:2px}
+.cfgMonT button{padding:6px 10px;color:#a9a59c;font-size:.62rem}
+.cfgMonT button[aria-checked="true"]{background:var(--oro);color:var(--tinta)}
 /* Paso 1: paquete base */
 .cfgTabs{display:flex;gap:26px;border-bottom:1px solid var(--linea);margin:0 0 22px;overflow-x:auto;scrollbar-width:none}
 .cfgTabs::-webkit-scrollbar{display:none}
@@ -1087,7 +1098,7 @@ table.ct{width:100%;border-collapse:collapse;min-width:780px;font-size:.92rem}
   <div class="tope eti"><button type="button" class="eti" id="armaVolver"><svg width="22" height="10" viewBox="0 0 22 10" fill="none" aria-hidden="true"><path d="M22 5H1M5 1 1 5l4 4" stroke="currentColor"/></svg>Volver</button><span>Arma tu paquete</span><a class="eti ir" href="tel:+18097295312">809-729-5312</a></div>
   <section class="blo cfg" id="personaliza">
     <div class="wrap">
-      <div class="cab"><p class="eti">Arma tu paquete</p><h2 id="armaTit">Construye tu <em>experiencia</em></h2><p class="cfgSub">Elige tu paquete y súmale fotografías impresas, un álbum y su presentación. El total se calcula al instante.</p></div>
+      <div class="cab"><p class="eti">Arma tu paquete</p><h2 id="armaTit">Construye tu <em>experiencia</em></h2><p class="cfgSub">Elige tu paquete y súmale fotografías impresas, un álbum y su presentación. El total se calcula al instante.</p><div class="cfgMonW"><div class="cfgMon eti" role="radiogroup" aria-label="Moneda"><button type="button" role="radio" data-m="RD$" aria-checked="true">RD$ Pesos</button><button type="button" role="radio" data-m="US$" aria-checked="false">US$ Dólares</button></div><span class="cfgTasaTxt eti"></span></div></div>
       <div class="cfgGrid">
         <div class="cfgPasos">
           <div class="cfgPaso">
@@ -1111,7 +1122,7 @@ table.ct{width:100%;border-collapse:collapse;min-width:780px;font-size:.92rem}
         </div>
         <aside class="cfgRes" id="cfgRes" aria-label="Resumen del pedido">
           <div class="cfgTicket">
-            <p class="eti">Resumen del pedido</p>
+            <div class="cfgTkCab"><p class="eti">Resumen del pedido</p><div class="cfgMon cfgMonT eti" role="radiogroup" aria-label="Moneda del resumen"><button type="button" role="radio" data-m="RD$" aria-checked="true">RD$</button><button type="button" role="radio" data-m="US$" aria-checked="false">US$</button></div></div>
             <div id="cfgLineas" aria-live="polite"></div>
             <div class="cfgTot"><span class="eti">Total del pedido</span><b id="cfgTotal">RD$0</b><small id="cfgTotNota"></small></div>
             <a class="cta mag eti cfgWa" id="cfgWa" href="https://wa.me/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>Solicitar mi paquete por WhatsApp</a>
@@ -1979,6 +1990,12 @@ const ADI = (function(a){
   };
 })(ADICIONALES);
 const RD = n => "RD$" + Math.round(n).toLocaleString("en-US");
+const TASA = Math.max(1, Number(CONFIG.tasaDolar) || 60);
+const enRD = p => p.mon === "US$" ? p.precio * TASA : p.precio;
+const US = n => { const v = Math.round(n / TASA * 100) / 100; return "US$" + v.toLocaleString("en-US", {minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits: 2}); };
+const M = n => CFG && CFG.mon === "US$" ? US(n) : RD(n);
+const OTRA = n => CFG && CFG.mon === "US$" ? RD(n) : US(n);
+const TASA_TXT = "US$1 = RD$" + TASA.toLocaleString("en-US");
 const CFG_PAQS = [];
 CATALOGO.forEach(c => (c.paquetes || []).forEach(p => { if (p.precio) CFG_PAQS.push({c, p}); }));
 const cfgPaq = id => CFG_PAQS.find(x => x.p.id === id) || null;
@@ -1995,9 +2012,9 @@ function cfgCargar(){
   ADI.impresas.forEach(x => { const n = Math.min(99, Math.max(0, parseInt(g.imp && g.imp[x.id], 10) || 0)); if (n) imp[x.id] = n; });
   const alb = ADI.albumes.some(x => x.id === g.alb) ? g.alb : null;
   const pres = ADI.presentaciones.some(x => x.id === g.pres) ? g.pres : (ADI.presentaciones[0] ? ADI.presentaciones[0].id : null);
-  return {paq: cfgPaq(g.paq) ? g.paq : null, imp, alb, pres, tab: 0};
+  return {paq: cfgPaq(g.paq) ? g.paq : null, imp, alb, pres, tab: 0, mon: g.mon === "US$" ? "US$" : "RD$"};
 }
-function cfgGuardar(){ try { localStorage.setItem("ljCfg", JSON.stringify({paq: CFG.paq, imp: CFG.imp, alb: CFG.alb, pres: CFG.pres})); } catch (e) {} }
+function cfgGuardar(){ try { localStorage.setItem("ljCfg", JSON.stringify({paq: CFG.paq, imp: CFG.imp, alb: CFG.alb, pres: CFG.pres, mon: CFG.mon})); } catch (e) {} }
 
 /* Cálculo único que usan el resumen, la barra y los mensajes de WhatsApp */
 function cfgCalculo(){
@@ -2007,23 +2024,21 @@ function cfgCalculo(){
   const pres = alb ? (ADI.presentaciones.find(x => x.id === CFG.pres) || null) : null;
   const tImp = imps.reduce((s, i) => s + i.sub, 0);
   const extras = tImp + (alb ? alb.precio : 0) + (pres ? pres.precio : 0);
-  const baseRD = base && base.p.mon === "RD$" ? base.p.precio : 0;
-  const usd = base && base.p.mon !== "RD$" ? base.p : null;
-  return {base, imps, tImp, alb, pres, extras, total: baseRD + extras, usd, vacio: !base && !imps.length && !alb};
+  const baseRD = base ? enRD(base.p) : 0;
+  return {base, baseRD, imps, tImp, alb, pres, extras, total: baseRD + extras, vacio: !base && !imps.length && !alb};
 }
 function cfgLineasTexto(k){
   const l = [];
-  if (k.base) l.push("Paquete: " + k.base.p.nombre + " (" + k.base.c.nombre + ") · " + precioTxt(k.base.p));
-  if (k.imps.length){ l.push("Fotografías impresas:"); k.imps.forEach(i => l.push("• " + i.n + " × " + i.x.nombre + " pulgadas (" + RD(i.x.precio) + " c/u) = " + RD(i.sub))); }
+  if (k.base) l.push("Paquete: " + k.base.p.nombre + " (" + k.base.c.nombre + ") · " + M(k.baseRD));
+  if (k.imps.length){ l.push("Fotografías impresas:"); k.imps.forEach(i => l.push("• " + i.n + " × " + i.x.nombre + " pulgadas (" + M(i.x.precio) + " c/u) = " + M(i.sub))); }
   if (k.alb){
-    l.push("Álbum: " + k.alb.nombre + " pulgadas" + (k.alb.lienzos ? ", " + k.alb.lienzos + " lienzos" : "") + " = " + RD(k.alb.precio));
-    if (k.pres) l.push("Presentación del álbum: " + k.pres.nombre + (k.pres.precio ? " = " + RD(k.pres.precio) : " (sin costo)"));
+    l.push("Álbum: " + k.alb.nombre + " pulgadas" + (k.alb.lienzos ? ", " + k.alb.lienzos + " lienzos" : "") + " = " + M(k.alb.precio));
+    if (k.pres) l.push("Presentación del álbum: " + k.pres.nombre + (k.pres.precio ? " = " + M(k.pres.precio) : " (sin costo)"));
   }
   return l;
 }
 function cfgTotalTexto(k){
-  if (k.usd) return k.extras ? "TOTAL DEL PEDIDO: " + k.usd.mon + k.usd.precio.toLocaleString("en-US") + " (paquete) + " + RD(k.extras) + " (adicionales)" : "TOTAL DEL PEDIDO: " + precioTxt(k.usd);
-  return "TOTAL DEL PEDIDO: " + RD(k.total);
+  return "TOTAL DEL PEDIDO: " + M(k.total) + "\n(Equivale a " + OTRA(k.total) + " · tasa " + TASA_TXT + ")";
 }
 function cfgMensaje(){
   const k = cfgCalculo();
@@ -2035,7 +2050,7 @@ function cfgExtrasParaReserva(){
   const k = cfgCalculo();
   if (!k.imps.length && !k.alb) return [];
   const l = ["", "Adicionales de mi paquete personalizado:"].concat(cfgLineasTexto(Object.assign({}, k, {base: null})));
-  l.push("Total de adicionales: " + RD(k.extras));
+  l.push("Total de adicionales: " + M(k.extras));
   if (k.base) l.push(cfgTotalTexto(k));
   return l;
 }
@@ -2047,14 +2062,14 @@ function cfgTabs(){
   $("cfgTabs").querySelectorAll("button").forEach(b => b.addEventListener("click", () => { CFG.tab = +b.dataset.i; cfgTabs(); }));
   const c = cats[CFG.tab] || cats[0];
   $("cfgPaqs").innerHTML = c ? c.paquetes.filter(p => p.precio).map((p, k) => '<button type="button" class="cfgPq" role="radio" style="--d:' + k + '" aria-checked="' + (CFG.paq === p.id) + '" data-id="' + p.id + '">' +
-    (p.destacado ? '<span class="cfgTop eti">' + (p.insignia ? "Destacado" : "Favorito") + '</span>' : "") + CFG_OK + '<b>' + p.nombre + '</b><span>' + precioTxt(p) + '</span></button>').join("") : "";
+    (p.destacado ? '<span class="cfgTop eti">' + (p.insignia ? "Destacado" : "Favorito") + '</span>' : "") + CFG_OK + '<b>' + p.nombre + '</b><span>' + M(enRD(p)) + '</span></button>').join("") : "";
   $("cfgPaqs").querySelectorAll(".cfgPq").forEach(b => b.addEventListener("click", () => cfgElegirPaq(CFG.paq === b.dataset.id ? null : b.dataset.id, true)));
   CFG.cats = cats;
 }
 function cfgImps(){
   $("cfgImps").innerHTML = ADI.impresas.map(x => '<article class="cfgImp" data-id="' + x.id + '">' + CFG_OK +
     '<div class="cfgEsc"><div class="cfgPapel" style="--w:' + x.ancho + ';--h:' + x.alto + '"><div class="cfgPila"><i></i><i></i></div>' + imgDe(x.foto) + '</div></div>' +
-    '<div class="cfgDato"><h4>' + x.nombre + '<small>pulgadas</small></h4><p class="cfgPu">' + RD(x.precio) + ' <span>por unidad</span></p>' +
+    '<div class="cfgDato"><h4>' + x.nombre + '<small>pulgadas</small></h4><p class="cfgPu">' + M(x.precio) + ' <span>por unidad</span></p>' +
     '<div class="cfgCant"><button type="button" class="menos" aria-label="Quitar una ' + x.nombre + '">−</button><output aria-live="polite" aria-label="Cantidad de ' + x.nombre + '">0</output><button type="button" class="mas" aria-label="Agregar una ' + x.nombre + '">+</button></div>' +
     '<p class="cfgSt">Subtotal <b>RD$0</b></p></div></article>').join("");
   $("cfgImps").querySelectorAll(".cfgImp").forEach(el => {
@@ -2066,7 +2081,7 @@ function cfgImps(){
 function cfgAlbs(){
   $("cfgAlbs").innerHTML = ADI.albumes.map(x => '<button type="button" class="cfgAl" role="radio" aria-checked="false" data-id="' + x.id + '">' + CFG_OK +
     '<div class="cfgEsc"><div class="cfgLibro" style="--w:' + x.ancho + ';--h:' + x.alto + '"><span class="hojas"></span><span class="lomo"></span><span class="tapa">' + imgDe(x.foto) + '</span></div></div>' +
-    '<div class="cfgDato"><h4>' + x.nombre + '<small>pulgadas</small></h4><span class="cfgLz">' + (x.lienzos ? x.lienzos + " lienzos" : "&nbsp;") + '</span><p class="cfgPu">' + RD(x.precio) + '</p></div></button>').join("");
+    '<div class="cfgDato"><h4>' + x.nombre + '<small>pulgadas</small></h4><span class="cfgLz">' + (x.lienzos ? x.lienzos + " lienzos" : "&nbsp;") + '</span><p class="cfgPu">' + M(x.precio) + '</p></div></button>').join("");
   $("cfgAlbs").querySelectorAll(".cfgAl").forEach(b => b.addEventListener("click", () => {
     CFG.alb = CFG.alb === b.dataset.id ? null : b.dataset.id;
     if (!CFG.alb && ADI.presentaciones[0]) CFG.pres = ADI.presentaciones[0].id;
@@ -2074,7 +2089,7 @@ function cfgAlbs(){
     if (CFG.alb && !$("cfgPres").dataset.vista && innerWidth < 1021){ $("cfgPres").dataset.vista = 1; setTimeout(() => $("cfgPres").scrollIntoView({behavior: calma ? "auto" : "smooth", block: "nearest"}), 120); }
   }));
   $("cfgPrOps").innerHTML = ADI.presentaciones.map(x => '<button type="button" class="cfgPr" role="radio" aria-checked="false" data-id="' + x.id + '">' + CFG_OK + (CFG_IC[x.tipo] || CFG_IC.caja) +
-    '<b>' + x.nombre + '</b><p class="cfgPu">' + (x.precio ? "+ " + RD(x.precio) : "RD$0") + '</p><small>' + x.desc + '</small></button>').join("");
+    '<b>' + x.nombre + '</b><p class="cfgPu">' + (x.precio ? "+ " + M(x.precio) : M(0)) + '</p><small>' + x.desc + '</small></button>').join("");
   $("cfgPrOps").querySelectorAll(".cfgPr").forEach(b => b.addEventListener("click", () => { CFG.pres = b.dataset.id; cfgRefrescar(); }));
 }
 function cfgCantidad(id, d){
@@ -2091,7 +2106,7 @@ function cfgElegirPaq(id, desdeModulo){
   cfgTabs(); cfgRefrescar();
   if (desdeModulo && $("paquete")){ $("paquete").value = CFG.paq || ""; if (s) $("tipo").value = s.c.nombre; actualizar(); }
 }
-let cfgPrevTot = 0;
+let cfgPrevTot = "";
 function cfgRefrescar(){
   const k = cfgCalculo();
   ADI.impresas.forEach(x => {
@@ -2100,7 +2115,7 @@ function cfgRefrescar(){
     el.classList.toggle("on", n > 0); el.classList.toggle("dos", n > 1);
     el.querySelector("output").textContent = n;
     el.querySelector(".menos").disabled = !n; el.querySelector(".mas").disabled = n >= 99;
-    el.querySelector(".cfgSt b").textContent = RD(x.precio * n);
+    el.querySelector(".cfgSt b").textContent = M(x.precio * n);
   });
   $("cfgAlbs").querySelectorAll(".cfgAl").forEach(b => b.setAttribute("aria-checked", b.dataset.id === CFG.alb));
   $("cfgPres").hidden = !CFG.alb;
@@ -2113,19 +2128,22 @@ function cfgRefrescar(){
   if (k.vacio) h = '<p class="cfgVacio">Elige un paquete o agrega impresiones y un álbum para ver tu presupuesto.</p>';
   else {
     h = '<ul class="cfgLs">';
-    h += '<li class="gr">Paquete fotográfico</li>' + (k.base ? li(k.base.p.nombre, precioTxt(k.base.p), k.base.c.nombre) : li("Sin paquete seleccionado", "—"));
-    if (k.imps.length){ h += '<li class="gr">Fotografías impresas</li>' + k.imps.map(i => li(i.x.nombre + " pulg.", RD(i.sub), i.n + " × " + RD(i.x.precio))).join(""); if (k.imps.length > 1) h += li("Subtotal impresas", RD(k.tImp)); }
-    if (k.alb){ h += '<li class="gr">Álbum</li>' + li(k.alb.nombre + " pulg.", RD(k.alb.precio), k.alb.lienzos ? k.alb.lienzos + " lienzos" : ""); if (k.pres) h += li(k.pres.nombre, k.pres.precio ? RD(k.pres.precio) : "RD$0", "Presentación"); }
-    if (k.extras && k.base) h += li("Subtotal adicionales", RD(k.extras));
+    h += '<li class="gr">Paquete fotográfico</li>' + (k.base ? li(k.base.p.nombre, M(k.baseRD), k.base.c.nombre) : li("Sin paquete seleccionado", "—"));
+    if (k.imps.length){ h += '<li class="gr">Fotografías impresas</li>' + k.imps.map(i => li(i.x.nombre + " pulg.", M(i.sub), i.n + " × " + M(i.x.precio))).join(""); if (k.imps.length > 1) h += li("Subtotal impresas", M(k.tImp)); }
+    if (k.alb){ h += '<li class="gr">Álbum</li>' + li(k.alb.nombre + " pulg.", M(k.alb.precio), k.alb.lienzos ? k.alb.lienzos + " lienzos" : ""); if (k.pres) h += li(k.pres.nombre, k.pres.precio ? M(k.pres.precio) : M(0), "Presentación"); }
+    if (k.extras && k.base) h += li("Subtotal adicionales", M(k.extras));
     h += '</ul>';
   }
   $("cfgLineas").innerHTML = h;
-  const tTxt = k.usd ? (k.extras ? RD(k.extras) : precioTxt(k.usd)) : RD(k.total);
-  const tEl = $("cfgTotal");
-  if (!k.usd && k.total !== cfgPrevTot && !calma){ contarA(tEl, cfgPrevTot, k.total, "RD$"); tEl.classList.remove("pulso"); void tEl.offsetWidth; tEl.classList.add("pulso"); }
-  else tEl.textContent = tTxt;
-  cfgPrevTot = k.usd ? 0 : k.total;
-  $("cfgTotNota").textContent = k.usd ? (k.extras ? "Más el paquete " + k.usd.nombre + " de " + precioTxt(k.usd) + ", que se cotiza en dólares." : "Este paquete se cotiza en dólares.") : (k.vacio ? "" : "Precios en pesos dominicanos.");
+  const tTxt = M(k.total);
+  const tEl = $("cfgTotal"), clave = CFG.mon + k.total;
+  if (clave !== cfgPrevTot && !calma){
+    if (CFG.mon === "RD$" && String(cfgPrevTot).startsWith("RD$")) contarA(tEl, Number(String(cfgPrevTot).slice(3)) || 0, k.total, "RD$"); else tEl.textContent = tTxt;
+    tEl.classList.remove("pulso"); void tEl.offsetWidth; tEl.classList.add("pulso");
+  } else tEl.textContent = tTxt;
+  cfgPrevTot = clave;
+  $("cfgTotNota").textContent = (k.vacio ? "" : "Equivale a " + OTRA(k.total) + " · ") + "Tasa " + TASA_TXT;
+  document.querySelectorAll(".cfgMon button").forEach(b => b.setAttribute("aria-checked", b.dataset.m === CFG.mon));
   $("cfgBarTot").textContent = tTxt;
   const wa = $("cfgWa");
   wa.classList.toggle("off", k.vacio); wa.setAttribute("aria-disabled", k.vacio);
@@ -2138,6 +2156,9 @@ CFG = cfgCargar();
 cfgTabs(); cfgImps(); cfgAlbs();
 if (CFG.paq){ const s = cfgPaq(CFG.paq), i = CFG.cats.indexOf(s.c); if (i >= 0){ CFG.tab = i; cfgTabs(); } $("paquete").value = CFG.paq; $("tipo").value = s.c.nombre; }
 cfgRefrescar();
+function cfgMoneda(m){ if (m === CFG.mon) return; CFG.mon = m; cfgTabs(); cfgImps(); cfgAlbs(); cfgRefrescar(); }
+document.querySelectorAll(".cfgMon button").forEach(b => b.addEventListener("click", () => cfgMoneda(b.dataset.m)));
+document.querySelectorAll(".cfgTasaTxt").forEach(el => el.textContent = "Tasa " + TASA_TXT);
 $("cfgWa").addEventListener("click", e => {
   if (cfgCalculo().vacio){ e.preventDefault(); $("cfgEstado").textContent = "Elige al menos un paquete o un adicional para enviar tu pedido."; return; }
   $("cfgWa").href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(cfgMensaje());

@@ -22,6 +22,9 @@ content:
           - name: whatsappVisible
             label: WhatsApp como se muestra (ej. 809-729-5312)
             type: string
+          - name: tasaDolar
+            label: Tasa del dólar en «Arma tu paquete» (pesos por cada US$1, ej. 60)
+            type: number
           - name: dominio
             label: Dominio (sin https://)
             type: string
