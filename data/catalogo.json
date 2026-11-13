@@ -52,7 +52,8 @@
             "Entrega digital mediante enlace privado",
             "Sesión especial de los novios en el juzgado civil",
             "Sesión preboda"
-          ]
+          ],
+          "fotoFija": true
         },
         {
           "id": "boda-premium",

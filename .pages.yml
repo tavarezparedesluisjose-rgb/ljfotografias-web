@@ -92,6 +92,9 @@ content:
               - name: foto
                 label: Foto
                 type: image
+              - name: fotoFija
+                label: Foto fija (si no se marca, la página elige una foto al azar del portafolio en cada visita)
+                type: boolean
               - name: destacado
                 label: Destacado
                 type: boolean
@@ -180,6 +183,9 @@ content:
               - name: foto
                 label: Foto (opcional)
                 type: image
+              - name: fotoFija
+                label: Foto fija (si no se marca, la página elige una foto al azar del portafolio en cada visita)
+                type: boolean
               - name: corto
                 label: Descripción corta
                 type: text

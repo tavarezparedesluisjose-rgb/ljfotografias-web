@@ -1749,6 +1749,28 @@ CATALOGO.forEach(c => {
   c.comparar = !!(c.comparar && ui > 0);
 });
 
+/* Fotos al azar: en cada visita, cada paquete (y la portada de su experiencia) toma una foto distinta del portafolio
+   de su categoría, sin repetirse dentro de la experiencia, y su galería de detalle también se arma al azar.
+   Un paquete o servicio con "fotoFija" conserva su foto (por ejemplo, la boda civil en el juzgado), y esa foto
+   no se usa en ningún otro lugar. */
+(function(){
+  const fijas = new Set();
+  CATALOGO.forEach(c => (c.paquetes || []).concat(c.servicios || []).forEach(it => { if (it.fotoFija && it.foto) fijas.add(it.foto); }));
+  const mezclar = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  CATALOGO.forEach(c => {
+    if (!c.galeria.length) return;
+    const cats = c.id === "casuales" ? c.galeria : [c.galeria[0]];
+    let pool = mezclar(FOTOS.filter(f => cats.includes(f.c) && !fijas.has(f.f)).map(f => f.f));
+    const items = (c.paquetes || []).concat(c.servicios || []).filter(it => it.foto && !it.fotoFija);
+    if (pool.length < items.length + 1) return;
+    const tomar = () => { const f = pool.shift(); pool.push(f); return f; };
+    c.portada = tomar();
+    items.forEach(it => { it.foto = tomar(); });
+    const resto = pool.slice();
+    (c.paquetes || []).forEach(p => { p.gal = mezclar(resto.filter(f => f !== p.foto)).slice(0, 5); });
+  });
+})();
+
 const slug = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 CATALOGO.forEach(c => (c.servicios || []).forEach(s => { s.id = s.id || c.id + "-" + slug(s.nombre); }));
 const listaDe = c => c.paquetes || c.servicios;
@@ -1969,7 +1991,7 @@ function abrirDet(k){
   const c = CATALOGO[catAct], ps = c.paquetes, d = $("det"), yaAbierto = d.classList.contains("ver");
   const pintar = () => {
     detK = (k + ps.length) % ps.length; const p = ps[detK], ops = opcionesDe(c, p);
-    const gal = [p.foto].concat(FOTOS.filter(f => c.galeria.includes(f.c) && f.f !== p.foto).slice(0, 5).map(f => f.f));
+    const gal = [p.foto].concat(p.gal || FOTOS.filter(f => c.galeria.includes(f.c) && f.f !== p.foto).slice(0, 5).map(f => f.f));
     $("dMain").innerHTML = '<img alt="' + p.nombre + '" src="' + srcDe(gal[0]) + '">';
     $("dThumbs").innerHTML = gal.map((f, i) => '<button type="button" aria-pressed="' + (i === 0) + '" aria-label="Ver foto ' + (i + 1) + '"><img alt="" src="' + srcDe(f) + '"></button>').join("");
     $("dThumbs").querySelectorAll("button").forEach((b, i) => b.addEventListener("click", () => {
