@@ -59,6 +59,7 @@ fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
 fs.writeFileSync(path.join(dist, "index.html"), html);
 fs.cpSync(path.join(raiz, "img"), path.join(dist, "img"), { recursive: true });
+fs.cpSync(path.join(raiz, "js"), path.join(dist, "js"), { recursive: true });
 ["favicon.svg", "apple-touch-icon.png"].forEach((f) => {
   if (fs.existsSync(path.join(raiz, f))) fs.copyFileSync(path.join(raiz, f), path.join(dist, f));
 });
